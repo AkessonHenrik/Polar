@@ -1,0 +1,4 @@
+client/node_modules
+server/node_modules
+client/e2e/*.js
+client/e2e/*.map
