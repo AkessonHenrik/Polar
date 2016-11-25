@@ -1,0 +1,22 @@
+.wrapper {
+    position: relative;
+    left: 50%;
+    top: 50%;
+    margin-top: 100px;
+    width: 500px;
+    background-color: lightblue;
+    color: white;
+    border-radius: 20px;
+    font-size: 30px;
+}
+.wrapper form {
+    padding: 30px;
+    padding-top: 50%;
+    padding-left: 50%;
+    transform: translate(-50%, -50%);
+}
+.wrapper form input {
+    height: 40px;
+    width: 300px;
+    font-size: 30px;
+}
