@@ -1,22 +1,24 @@
 "use strict";
 var profileController = require('../controllers/profileController');
-var bodyParser = require('body-parser');
 module.exports = function (router) {
-    router.route("/:email/:username/:password")
+    router.route("/")
         .post(function (req, res) {
-            profileController.addProfile({ 
-                "email": req.params.email, 
-                "username": req.params.username, 
-                "password": req.params.password 
-            }, function (err, result) {
-                console.log(err);
-            });
+            console.log(req.body);
+            profileController.addProfile(
+                req.body,
+                function (err, result) {
+                    if (err) {
+                        console.log(err);
+                    } else {
+                        console.log(result);
+                    }
+                    res.status(200).send(result);
+                });
 
-            res.status(200).send("Got your request");
         });
     router.route("/:username")
-        .get(function(req, res) {
-            profileController.getProfile(req.params.username, function(err, result) {
+        .get(function (req, res) {
+            profileController.getProfile(req.params.username, function (err, result) {
                 res.status(200).send(result);
             })
         })
