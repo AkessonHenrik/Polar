@@ -1,22 +1,47 @@
 .wrapper {
-    position: relative;
+    position: absolute;
     left: 50%;
     top: 50%;
-    margin-top: 100px;
-    width: 500px;
-    background-color: lightblue;
+    width: 800px;
+    height: 800px;
+    background-color: #70cbce;
     color: white;
-    border-radius: 20px;
     font-size: 30px;
-}
-.wrapper form {
-    padding: 30px;
-    padding-top: 50%;
-    padding-left: 50%;
     transform: translate(-50%, -50%);
+    box-shadow: 5px 3px 5px #888;
 }
-.wrapper form input {
+
+.wrapper .polarForm {
+    padding: 30px;
+}
+
+.wrapper h1 {
+    text-align: center;
+}
+
+.wrapper .polarForm input {
     height: 40px;
-    width: 300px;
+    width: 90%;
+    left: 50%;
     font-size: 30px;
+    padding: 20px;
+    border: none;
+    margin-top: 20px;
+    color: darkgray;
+    clear: both;
+}
+
+.login {
+    left: 50%;
+    transform: translate(-50%, 0);
+    margin: 20px;
+    padding: 20px;
+    font-size: 30px;
+    background-color: #231f20;
+    color: #70cbce;
+}
+
+.login:hover {
+    padding: 30px;
+    transition: 0.4s;
 }

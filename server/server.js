@@ -5,6 +5,11 @@ var express = require("express"),
     config = require("./config/config.js"),
     bodyParser = require('body-parser');
 
+
+var cors = require('cors');
+
+// CORS configuration
+app.use(cors({ origin: '*' }));
 app.use(bodyParser.urlencoded({ extended: false }));
 app.use(bodyParser.json());
 console.log(config.db_url);
@@ -14,10 +19,10 @@ console.log("Connecting to database...");
 mongoose.connect(config.db_url);
 
 var db = mongoose.connection;
-db.on("error", function () {
+db.on("error", function() {
     console.log("Cannot connect to database")
 });
-db.once("open", function () {
+db.once("open", function() {
     console.log("Connected to database")
 });
 
@@ -31,6 +36,6 @@ require("./routes/users.js")(registerRouter);
 app.use("/users", registerRouter);
 var http = require('http').Server(app);
 
-http.listen(config.server_listen_port, function () {
+http.listen(config.server_listen_port, function() {
     console.log("Listening on port " + config.server_listen_port);
 })
