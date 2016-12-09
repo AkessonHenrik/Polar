@@ -63,7 +63,7 @@ ng serve
   ```
 
 * Open a browser and go to `localhost:4200`
-* 
+
 #### Server
 
 * Go into the `server` folder
