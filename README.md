@@ -41,32 +41,40 @@ Interactive Polls use the following frameworks and techs:
 
 ### Requirements
 
-To run Interactive Polls on your computer, you will need to install the following on your computer.
+To build and run  Interactive Polls on your computer, you need to install the following tools on your computer.
 
 - npm (_latest version_)
-- MongoDB (_latest version_)
-- Express (_latest version_)
-- Angular 2
-- Node.js (_latest version_)
-
-To build the project, you need to install the following tools.
-
-- npm (_latest version_)
-- Bower (_latest version_)
-- Grunt (_latest version_)
+- angular-cli (_latest version_)
+- Node (_latest version_)
 
 ### Deployment
 
-1. Clone this repository
-2. Make sure you have a terminal session opened in the root directory of this repository cloned
-3. Run the following commands:
+* Clone this repository
+* Make sure you have a terminal session opened in the root directory of this repository cloned
+
+#### Client
+
+* Go into the `client` folder
+* Run the following commands:
 
   ```bash
-bower install
-grunt
+npm install
+ng serve
   ```
 
-4. Open a browser and go to `localhost:8080`
+* Open a browser and go to `localhost:4200`
+* 
+#### Server
+
+* Go into the `server` folder
+* Run the following commands:
+
+  ```bash
+npm install
+node server.js
+  ```
+
+* Open a browser and go to `localhost:3030`
 ## UI mockups
 
 We will use the benefits of Material Design to have a clear and simple UI. The main page will look like this:
