@@ -62,7 +62,7 @@ npm install
 ng serve
   ```
 
-* Open a browser and go to `localhost:4200`
+* Open a browser and go to `localhost:4200`.
 
 #### Server
 
@@ -74,7 +74,7 @@ npm install
 node server.js
   ```
 
-* Open a browser and go to `localhost:3030`
+* The server will now run on port `3030`.
 ## UI mockups
 
 We will use the benefits of Material Design to have a clear and simple UI. The main page will look like this:
