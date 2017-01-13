@@ -65,5 +65,15 @@ export class ApiService {
     return this.post(options, path, data);
   }
 
+  public login(username: String, password: String): Promise<any> {
+    var options = new RequestOptions({headers: ApiService.jsonHeader});
+    var path = "auth";
+    var data = {
+      "username": username,
+      "password": password
+    };
+
+    return this.post(options, path, data);
+  }
 
 }

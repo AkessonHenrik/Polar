@@ -28,12 +28,17 @@ db.once("open", function() {
 
 
 require("./routes/users")(app);
+require("./routes/auth")(app);
 
 var registerRouter = express.Router();
+var authRouter = express.Router();
 
 require("./routes/users.js")(registerRouter);
+require("./routes/auth.js")(authRouter);
 
 app.use("/users", registerRouter);
+app.use("/auth", authRouter);
+
 var http = require('http').Server(app);
 
 http.listen(config.server_listen_port, function() {

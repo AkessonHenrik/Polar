@@ -6,7 +6,7 @@
                 <input type="text" placeholder="Enter username" [(ngModel)]="username" autofocus>
                 <input type="password" placeholder="Repeat password" [(ngModel)]="password">
             </div>
-            <button class="login" md-raised-button>Login</button>
+            <button class="login" md-raised-button (click)="login()">Login</button>
         </md-tab>
         <md-tab label="SIGN UP">
             <div class="polarForm">

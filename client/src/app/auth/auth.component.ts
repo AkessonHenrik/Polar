@@ -30,7 +30,14 @@ export class AuthComponent implements OnInit {
           console.log(result);
         });
     }
-
+  }
+  login(): void {
+    if(this.password !== "" && this.username !== "") {
+      this.apiService.login(this.username, this.password)
+        .then(result => {
+          console.log("Authenticated");
+        })
+    }
   }
 
 }
