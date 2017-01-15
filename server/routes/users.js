@@ -10,14 +10,17 @@ module.exports = function(router) {
                 function(err, result) {
                     if (err) {
                         console.log(err);
-                    } else {
-                        console.log(result);
+                        res.status(500).send({ 'Error': err });
+                        return;
                     }
+                    console.log("Saved");
+                    console.log(result);
+
                     res.status(200).send(result);
                 });
 
         });
-    router.route("/:username")
+    router.route("/:id")
         .get(function(req, res) {
             profileController.getProfile(req.params.username, function(err, result) {
                 res.status(200).send(result);

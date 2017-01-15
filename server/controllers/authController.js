@@ -8,7 +8,11 @@ exports.authentify = function(data, callback) {
         if (err || !profile) {
             callback({ 'Error': 'Invalid Credentials' });
         } else {
-            callback(null, profile);
+            callback(null, {
+                'email': profile.email,
+                'username': profile.username,
+                '_id': profile._id
+            });
         }
     })
 }

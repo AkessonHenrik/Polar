@@ -9,7 +9,7 @@
 - Choisir le rôle qu'on veut
 	- presenter (peut poser des questions)
 	- auditor (peut répondres aux questions)
-	- participant (peut uniquement voir les résultats) 
+	- participant (peut uniquement voir les résultats)
 
 - Login
 - Logout

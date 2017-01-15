@@ -1,10 +1,15 @@
 /* You can add global styles to this file, and also import other style files */
 
 @import '~@angular/material/core/theming/prebuilt/deeppurple-amber.css';
-@import url('https://fonts.googleapis.com/css?family=Open+Sans');
+
+/*
+@import url('https://fonts.googleapis.com/css?family=Open+Sans:300');*/
+
+@import url('https://fonts.googleapis.com/css?family=Open+Sans:300|Quicksand:300');
+html,
 body {
-    font-family: 'Open Sans', sans-serif;
-    background: url("./assets/header-bg.jpg") no-repeat center center fixed;
+    margin: 0px;
+    font-family: 'Quicksand', sans-serif;
     -webkit-background-size: cover;
     -moz-background-size: cover;
     -o-background-size: cover;
