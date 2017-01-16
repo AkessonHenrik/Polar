@@ -1,11 +1,11 @@
 "use strict";
-var profileController = require('../controllers/profileController');
+var userController = require('../controllers/userController');
 module.exports = function(router) {
     router.route("/")
         .post(function(req, res) {
             console.log("Trying to register");
             console.log(req.body);
-            profileController.addProfile(
+            userController.addUser(
                 req.body,
                 function(err, result) {
                     if (err) {
@@ -22,7 +22,7 @@ module.exports = function(router) {
         });
     router.route("/:id")
         .get(function(req, res) {
-            profileController.getProfile(req.params.username, function(err, result) {
+            userController.getUser(req.params.username, function(err, result) {
                 res.status(200).send(result);
             })
         })
