@@ -44,8 +44,6 @@ export class ApiService {
     return this.http.post("http://localhost:3030/" + path, JSON.stringify(data), options)
       .toPromise()
       .then(response => {
-        console.log("POST RESPONSE");
-        console.log(response);
         return response;
       })
       .then(this.extractData)
@@ -96,16 +94,16 @@ export class ApiService {
 
 
   public submitParticipation(pollId, selectedAnswers) {
-    var options = new RequestOptions({headers: ApiService.jsonHeader});
+    var options = new RequestOptions({ headers: ApiService.jsonHeader });
     var path = "poll/" + pollId;
-    return  this.patch(options, path, selectedAnswers)
-      .toPromise()
-      .then(this.extractData)
-      .catch(this.handleError);
+    return this.patch(options, path, selectedAnswers);
   }
 
   public patch(options, path, data): any {
-    return this.http.patch("http://localhost:3030/" + path, JSON.stringify(data), options);
+    return this.http.patch("http://localhost:3030/" + path, JSON.stringify(data), options)
+      .toPromise()
+      .then(this.extractData)
+      .catch(this.handleError);
   }
 
 }

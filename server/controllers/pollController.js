@@ -69,5 +69,6 @@ exports.updatePoll = function(pollId, answers, callback) {
             poll.questions.forEach(q => {
                 console.log(q.votes);
             })
+            callback(null);
         })
 }

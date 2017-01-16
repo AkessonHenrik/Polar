@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { QuestionComponent } from '../question/question.component';
+import { Router } from '@angular/router'
 import { ApiService } from '../api.service';
 import { MdSnackBar } from '@angular/material';
 @Component({
@@ -16,9 +17,9 @@ export class PollComponent implements OnInit {
   submitter: String;
   questions: QuestionComponent[];
   title: String;
-  pollId : String;
+  pollId: String;
 
-  constructor(private apiService: ApiService, private snackBar: MdSnackBar) {
+  constructor(private apiService: ApiService, private snackBar: MdSnackBar, private router: Router) {
     this.background = [
       "../../assets/background-1.jpg",
       "../../assets/background-2.jpg",
@@ -38,7 +39,7 @@ export class PollComponent implements OnInit {
         this.questions.push(new QuestionComponent(question.title, question.answers));
       });
       this.selectedAnswers = new Array(this.questions.length);
-      for(var i = 0; i < this.selectedAnswers.length; i++) {
+      for (var i = 0; i < this.selectedAnswers.length; i++) {
         this.selectedAnswers[i] = -1;
       }
       this.title = result.title;
@@ -55,10 +56,10 @@ export class PollComponent implements OnInit {
     })
     if (allQuestionsAnswered) {
       this.snackBar.open('Saving answers...');
-      console.log("=================");
-      console.log(this.selectedAnswers);
-      console.log("=================");
-      this.apiService.submitParticipation(this.pollId, this.selectedAnswers);
+      this.apiService.submitParticipation(this.pollId, this.selectedAnswers).then(result => {
+        this.router.navigateByUrl('');
+        return;
+      });
     } else {
       alert("You haven't answered all questions!");
     }

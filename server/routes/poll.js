@@ -43,6 +43,7 @@ module.exports = function(router) {
                     res.status(500).send({ 'Error': err });
                     return;
                 } else {
+                    console.log("Sending result");
                     res.status(200).send({ 'Msg': 'Participation saved' })
                 }
             });
