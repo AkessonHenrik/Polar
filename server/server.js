@@ -26,10 +26,6 @@ db.once("open", function() {
     console.log("Connected to database")
 });
 
-
-require("./routes/users")(app);
-require("./routes/auth")(app);
-
 var registerRouter = express.Router();
 var authRouter = express.Router();
 var pollRouter = express.Router();

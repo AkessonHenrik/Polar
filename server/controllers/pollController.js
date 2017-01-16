@@ -2,6 +2,7 @@
 
 var mongoose = require("../models/poll"),
     Poll = mongoose.model("Poll");
+var Question = require("../models/question").model("Question");
 
 /**
  * Add new poll
@@ -21,11 +22,25 @@ exports.addPoll = function(data, callback) {
 
 exports.getPoll = function(id, callback) {
     Poll.findById(id)
+        .populate("submitter", "name")
+        .populate("questions", "title answers votes")
         .exec(function(err, poll) {
             if (err) {
                 callback(err);
                 return;
             }
             callback(null, poll);
+        })
+}
+exports.getPolls = function(callback) {
+    Poll.find({})
+        .populate("submitter", "name")
+        .populate("questions", "title answers votes")
+        .exec(function(err, polls) {
+            if (err) {
+                callback(err);
+                return;
+            }
+            callback(null, polls);
         })
 }

@@ -26,18 +26,13 @@ db.once('open', function() {
     // Saving Question
     var questions = [
         new Question({
-            title: "Question 1",
-            answers: ["Answer 1", "Answer 2", "Answer 3"],
+            title: "Quelle est la capitale de la Suisse?",
+            answers: ["Bern", "Berlin", "Geneve", "Zurich"],
             votes: [1, 2, 3]
         }),
         new Question({
-            title: "Question 2",
-            answers: ["Answer 1", "Answer 2", "Answer 3"],
-            votes: [1, 2, 3]
-        }),
-        new Question({
-            title: "Question 3",
-            answers: ["Answer 1", "Answer 2", "Answer 3"],
+            title: "Quelles sont les dates de la deuxième guerre mondiale?",
+            answers: ["1940 - 1945", "1939 - 1945", "1939 - 1944"],
             votes: [1, 2, 3]
         })
     ];
@@ -48,7 +43,7 @@ db.once('open', function() {
 
     // Saving Poll
     var poll = new Poll({
-        title: 'Poll Title Test',
+        title: 'Quiz',
         submitter: user,
         questions: questions,
         keywords: ["keyword 1", "keyword 2", "keyword 3", "keyword 4", "keyword 5"],

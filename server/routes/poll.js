@@ -12,6 +12,16 @@ module.exports = function(router) {
             })
         })
     router.route("/")
+        .get(function(req, res) {
+            pollController.getPolls((err, result) => {
+                if (err) {
+                    res.status(404).send(err);
+                } else {
+                    res.status(200).send(result);
+                }
+            })
+        })
+    router.route("/")
         .post(function(req, res) {
             pollController.addPoll(req.body, (err, result) => {
                 if (err) {

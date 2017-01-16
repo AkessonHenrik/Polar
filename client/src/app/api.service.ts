@@ -76,4 +76,21 @@ export class ApiService {
     return this.post(options, path, data);
   }
 
+  public getPolls() {
+    var options = new RequestOptions({ headers: ApiService.jsonHeader });
+    var path = "poll";
+    return this.get(options, path);
+  }
+  /**
+     * Sends a GET request to the server
+     * @param options HTTP options
+     * @param path API-REST path
+     * @returns {Promise<TResult|TResult>} the body response of the server
+     */
+  private get(options, path): any {
+    return this.http.get("http://localhost:3030/" + path, options)
+      .toPromise()
+      .then(this.extractData)
+      .catch(this.handleError);
+  }
 }

@@ -1,0 +1,19 @@
+<div class="back" [ngStyle]="{'background-image': 'url(' + background + ')'}">
+    <div class="wrapper">
+        <h1>{{title}}</h1>
+        <h2 style="text-align: center">
+            Submitted by: {{submitter}}
+        </h2>
+        <md-tab-group>
+            <md-tab *ngFor="let question of questions" label="Question {{questions.indexOf(question) + 1}}">
+                <h2>{{question.title}}</h2>
+                <ul *ngFor="let answer of question.answers">
+                    <li>
+                        {{answer}}
+                    </li>
+                </ul>
+            </md-tab>
+        </md-tab-group>
+        <button class="guest" md-raised-button (click)="submit()">Submit</button>
+    </div>
+</div>
