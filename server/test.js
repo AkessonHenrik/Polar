@@ -52,7 +52,7 @@ db.once('open', function() {
         submitter: user,
         questions: questions,
         keywords: ["keyword 1", "keyword 2", "keyword 3", "keyword 4", "keyword 5"],
-        public: true
+        ongoing: false
     });
     save(poll);
 

@@ -8,7 +8,7 @@ var PollSchema = new Schema({
     submitter: { type: Schema.Types.ObjectId, ref: "User" },
     questions: [{ type: Schema.Types.ObjectId, ref: "Question" }],
     keywords: [{ type: String, trim: true }],
-    public: Boolean,
+    ongoing: Boolean,
     created_at: { type: Date },
     updated_at: { type: Date }
 })
