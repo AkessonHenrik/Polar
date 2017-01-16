@@ -30,7 +30,7 @@ exports.getUser = function(id, callback) {
 
             callback(null, {
                 'email': user.email,
-                'username': user.username,
+                'name': user.name,
                 '_id': user._id
             });
         })

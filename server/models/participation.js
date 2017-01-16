@@ -11,9 +11,8 @@ var ParticipationSchema = new Schema({
 })
 
 ParticipationSchema.pre('save', function(next) {
-    var now = new Date();
     if (!this.created_at) {
-        this.created_at = now;
+        this.created_at = new Date();
     }
     next();
 });

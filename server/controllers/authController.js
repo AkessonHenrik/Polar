@@ -1,17 +1,17 @@
 "use strict";
 
-var mongoose = require("../models/profile"),
-    Profile = mongoose.model("Profile");
+var mongoose = require("../models/user"),
+    Profile = mongoose.model("User");
 
 exports.authentify = function(data, callback) {
-    Profile.findOne({ username: data.username }, function(err, profile) {
-        if (err || !profile) {
+    User.findOne({ email: data.email }, function(err, user) {
+        if (err || !user) {
             callback({ 'Error': 'Invalid Credentials' });
         } else {
             callback(null, {
-                'email': profile.email,
-                'username': profile.username,
-                '_id': profile._id
+                'email': user.email,
+                'name': user.name,
+                '_id': user._id
             });
         }
     })

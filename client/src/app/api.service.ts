@@ -1,14 +1,14 @@
-import {Injectable} from '@angular/core';
-import {Http, Response, Headers, RequestOptions} from '@angular/http';
+import { Injectable } from '@angular/core';
+import { Http, Response, Headers, RequestOptions } from '@angular/http';
 @Injectable()
 export class ApiService {
 
   constructor(private http: Http) { }
- /**
-   * Handles error responses
-   * @param { Reponse | any } error: Error response sent by server
-   * @return { Promise } Promisified error message
-   */
+  /**
+    * Handles error responses
+    * @param { Reponse | any } error: Error response sent by server
+    * @return { Promise } Promisified error message
+    */
   private handleError(error: Response | any) {
     console.log(error);
     // In a real world app, we might use a remote logging infrastructure
@@ -33,13 +33,13 @@ export class ApiService {
     let body = res.json();
     return body || {};
   }
-/**
-   * Sends a POST request to the server
-   * @param options HTTP options
-   * @param path API-REST path
-   * @param data the data to send along the post
-   * @returns {Promise<TResult|TResult>} the body response of the server
-   */
+  /**
+     * Sends a POST request to the server
+     * @param options HTTP options
+     * @param path API-REST path
+     * @param data the data to send along the post
+     * @returns {Promise<TResult|TResult>} the body response of the server
+     */
   private post(options, path, data): any {
     return this.http.post("http://localhost:3030/" + path, JSON.stringify(data), options)
       .toPromise()
@@ -51,14 +51,14 @@ export class ApiService {
       .then(this.extractData)
       .catch(this.handleError);
   }
-    private static readonly jsonHeader = new Headers({'Content-Type': 'application/json'});
+  private static readonly jsonHeader = new Headers({ 'Content-Type': 'application/json' });
 
   public register(email: String, username: String, password: String): Promise<any> {
-    var options = new RequestOptions({headers: ApiService.jsonHeader});
+    var options = new RequestOptions({ headers: ApiService.jsonHeader });
     var path = "users";
     var data = {
       "email": email,
-      "username": username,
+      "name": username,
       "password": password
     };
 
@@ -66,7 +66,7 @@ export class ApiService {
   }
 
   public login(username: String, password: String): Promise<any> {
-    var options = new RequestOptions({headers: ApiService.jsonHeader});
+    var options = new RequestOptions({ headers: ApiService.jsonHeader });
     var path = "auth";
     var data = {
       "username": username,

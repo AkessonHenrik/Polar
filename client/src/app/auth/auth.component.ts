@@ -11,7 +11,7 @@ import { ApiService } from '../api.service';
 })
 export class AuthComponent implements OnInit {
   email: String;
-  username: String;
+  name: String;
   password: String;
   repeatPassword: String;
   error: boolean;
@@ -26,25 +26,25 @@ export class AuthComponent implements OnInit {
   }
   background: string;
   ngOnInit() {
-    
+
   }
   signup(): void {
     if (this.password !== this.repeatPassword) {
       alert('Passwords don\'t match');
     } else {
-      this.apiService.register(this.email, this.username, this.password)
+      this.apiService.register(this.email, this.name, this.password)
         .then(result => {
           console.log(result);
         });
     }
   }
   login(): void {
-    if (this.password !== "" && this.username !== "") {
-      this.apiService.login(this.username, this.password)
+    if (this.password !== "" && this.name !== "") {
+      this.apiService.login(this.name, this.password)
         .then(result => {
           console.log("Authenticated");
           localStorage["polar_id"] = result._id;
-          localStorage["polar_username"] = result.username;
+          localStorage["polar_username"] = result.name;
           return;
         }).then(_ => {
           this.router.navigateByUrl('dashboard');
