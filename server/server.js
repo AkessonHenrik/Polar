@@ -32,12 +32,15 @@ require("./routes/auth")(app);
 
 var registerRouter = express.Router();
 var authRouter = express.Router();
+var pollRouter = express.Router();
 
 require("./routes/users.js")(registerRouter);
 require("./routes/auth.js")(authRouter);
+require("./routes/poll.js")(pollRouter);
 
 app.use("/users", registerRouter);
 app.use("/auth", authRouter);
+app.use("/poll", pollRouter);
 
 var http = require('http').Server(app);
 
