@@ -3,7 +3,7 @@
     left: 50%;
     top: 50%;
     width: 800px;
-    height: 800px;
+    height: 900px;
     /*
     box-shadow: 5px 3px 5px #888;
     background-color: #70cbce;*/
@@ -11,6 +11,12 @@
     color: white;
     font-size: 30px;
     transform: translate(-50%, -50%);
+}
+
+.selected {
+    background: rgba(112, 203, 206, 0.8);
+    color: white;
+    transition: 0.2s;
 }
 
 .back {
@@ -27,6 +33,16 @@
     text-align: center;
 }
 
+h2,
+li {
+    font-family: 'Quicksand', sans-serif;
+    text-align: center;
+}
+
+li {
+    list-style: none;
+}
+
 .wrapper .polarForm input {
     height: 40px;
     width: 90%;
@@ -37,6 +53,10 @@
     margin-top: 20px;
     color: darkgray;
     clear: both;
+}
+
+.answer {
+    padding: 10px;
 }
 
 .login {
@@ -66,6 +86,13 @@
 }
 
 .guest:hover {
-    padding: 30px;
+    background-color: #70cbce;
+    color: #231f20;
     transition: 0.4s;
+}
+
+.reviewAnswers h3,
+p {
+    text-align: center;
+    font-family: 'Quicksand', sans-serif;
 }

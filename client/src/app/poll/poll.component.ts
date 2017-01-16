@@ -1,41 +1,76 @@
 import { Component, OnInit } from '@angular/core';
 import { QuestionComponent } from '../question/question.component';
 import { ApiService } from '../api.service';
+import { MdSnackBar } from '@angular/material';
 @Component({
   selector: 'app-poll',
   templateUrl: './poll.component.html',
-  styleUrls: ['./poll.component.css']
+  styleUrls: ['./poll.component.css'],
+  providers: [MdSnackBar]
 })
 export class PollComponent implements OnInit {
 
-  constructor(private apiService: ApiService) {
+  selectedAnswers: Number[];
+  background: String;
+  activeTab = 0;
+  submitter: String;
+  questions: QuestionComponent[];
+  title: String;
+  pollId : String;
+
+  constructor(private apiService: ApiService, private snackBar: MdSnackBar) {
     this.background = [
       "../../assets/background-1.jpg",
       "../../assets/background-2.jpg",
       "../../assets/background-3.jpg"
     ][Math.floor(Math.random() * (3))];
   }
-  background: String;
-  submitter: String;
-  questions: QuestionComponent[];
-  title: String;
+
   ngOnInit() {
     this.apiService.getPolls().then(res => {
-      console.log(res);
+
       var result = res[0];
+      console.log(result);
+      this.pollId = result._id;
       this.submitter = result.submitter.name;
-      this.questions = result.questions;
+      this.questions = new Array();
+      result.questions.forEach(question => {
+        this.questions.push(new QuestionComponent(question.title, question.answers));
+      });
+      this.selectedAnswers = new Array(this.questions.length);
+      for(var i = 0; i < this.selectedAnswers.length; i++) {
+        this.selectedAnswers[i] = -1;
+      }
       this.title = result.title;
     })
   }
+
   submit(): void {
     // Send result to server
-    var r = confirm("Are you sure you want to send your choices?");
-    if (r == true) {
-      console.log("You pressed OK!");
-      console.log("Sending answers...");
+    var allQuestionsAnswered = true;
+    this.selectedAnswers.forEach(ans => {
+      if (ans === -1) {
+        allQuestionsAnswered = false;
+      }
+    })
+    if (allQuestionsAnswered) {
+      this.snackBar.open('Saving answers...');
+      console.log("=================");
+      console.log(this.selectedAnswers);
+      console.log("=================");
+      this.apiService.submitParticipation(this.pollId, this.selectedAnswers);
     } else {
-      console.log("You pressed Cancel!");
+      alert("You haven't answered all questions!");
     }
+  }
+
+  nextQuestion(index): void {
+    this.activeTab = index + 1;
+  }
+
+  onSelectAnswer(question, answer): void {
+    var questionIndex = this.questions.indexOf(question);
+    var answerIndex = this.questions[questionIndex].answers.indexOf(answer);
+    this.selectedAnswers[questionIndex] = answerIndex;
   }
 }

@@ -93,4 +93,19 @@ export class ApiService {
       .then(this.extractData)
       .catch(this.handleError);
   }
+
+
+  public submitParticipation(pollId, selectedAnswers) {
+    var options = new RequestOptions({headers: ApiService.jsonHeader});
+    var path = "poll/" + pollId;
+    return  this.patch(options, path, selectedAnswers)
+      .toPromise()
+      .then(this.extractData)
+      .catch(this.handleError);
+  }
+
+  public patch(options, path, data): any {
+    return this.http.patch("http://localhost:3030/" + path, JSON.stringify(data), options);
+  }
+
 }

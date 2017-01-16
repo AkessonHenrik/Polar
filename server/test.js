@@ -27,13 +27,11 @@ db.once('open', function() {
     var questions = [
         new Question({
             title: "Quelle est la capitale de la Suisse?",
-            answers: ["Bern", "Berlin", "Geneve", "Zurich"],
-            votes: [1, 2, 3]
+            answers: ["Bern", "Berlin", "Geneve", "Zurich"]
         }),
         new Question({
             title: "Quelles sont les dates de la deuxième guerre mondiale?",
-            answers: ["1940 - 1945", "1939 - 1945", "1939 - 1944"],
-            votes: [1, 2, 3]
+            answers: ["1940 - 1945", "1939 - 1945", "1939 - 1944"]
         })
     ];
     questions.forEach(question => {

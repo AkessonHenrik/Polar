@@ -7,7 +7,12 @@ import { Component, OnInit } from '@angular/core';
 })
 export class QuestionComponent implements OnInit {
 
-  constructor() { }
+  title: String;
+  answers: String[];
+  constructor(title: string, answers: string[]) {
+    this.title = title;
+    this.answers = answers;
+  }
 
   ngOnInit() {
   }
