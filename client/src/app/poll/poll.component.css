@@ -3,7 +3,7 @@
     left: 50%;
     top: 50%;
     width: 800px;
-    height: 900px;
+    min-height: 900px;
     /*
     box-shadow: 5px 3px 5px #888;
     background-color: #70cbce;*/
@@ -23,6 +23,7 @@
     width: 100%;
     height: 100vh;
     padding: 0;
+    position: fixed;
 }
 
 .wrapper .polarForm {
@@ -35,6 +36,7 @@
 
 h2,
 li {
+    cursor: pointer;
     font-family: 'Quicksand', sans-serif;
     text-align: center;
 }
