@@ -8,11 +8,13 @@ import { AuthComponent } from './auth/auth.component';
 import { MaterialModule } from '@angular/material';
 import { ApiService } from './api.service';
 import 'rxjs/add/operator/toPromise';
+import { ChartsModule } from 'ng2-charts/ng2-charts';
 import { RouterModule } from '@angular/router'
 import { DashboardComponent } from './dashboard/dashboard.component';
 import { GuestComponent } from './guest/guest.component';
 import { PollComponent } from './poll/poll.component';
 import { QuestionComponent } from './question/question.component';
+import { GraphComponent } from './graph/graph.component';
 // other imports 
 @NgModule({
   declarations: [
@@ -21,16 +23,19 @@ import { QuestionComponent } from './question/question.component';
     DashboardComponent,
     GuestComponent,
     PollComponent,
-    QuestionComponent
+    QuestionComponent,
+    GraphComponent
   ],
   imports: [
+    ChartsModule,
     MaterialModule.forRoot(),
     BrowserModule,
     FormsModule,
     RouterModule.forRoot([
       { path: '', component: AuthComponent },
       { path: 'dashboard', component: DashboardComponent },
-      { path: 'poll', component: PollComponent }
+      { path: 'poll', component: PollComponent },
+      { path: 'graph', component: GraphComponent }
     ]),
     HttpModule
   ],

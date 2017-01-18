@@ -33,6 +33,31 @@ db.once('open', function() {
             title: "Quelles sont les dates de la deuxième guerre mondiale?",
             answers: ["1940 - 1945", "1939 - 1945", "1939 - 1944"]
         })
+        /*,
+                new Question({
+                    title: "Quelles sont les dates de la deuxième guerre mondiale?",
+                    answers: ["1940 - 1945", "1939 - 1945", "1939 - 1944"]
+                }),
+                new Question({
+                    title: "Quelles sont les dates de la deuxième guerre mondiale?",
+                    answers: ["1940 - 1945", "1939 - 1945", "1939 - 1944"]
+                }),
+                new Question({
+                    title: "Quelles sont les dates de la deuxième guerre mondiale?",
+                    answers: ["1940 - 1945", "1939 - 1945", "1939 - 1944"]
+                }),
+                new Question({
+                    title: "Quelles sont les dates de la deuxième guerre mondiale?",
+                    answers: ["1940 - 1945", "1939 - 1945", "1939 - 1944"]
+                }),
+                new Question({
+                    title: "Quelles sont les dates de la deuxième guerre mondiale?",
+                    answers: ["1940 - 1945", "1939 - 1945", "1939 - 1944"]
+                }),
+                new Question({
+                    title: "Quelles sont les dates de la deuxième guerre mondiale?",
+                    answers: ["1940 - 1945", "1939 - 1945", "1939 - 1944"]
+        })*/
     ];
     questions.forEach(question => {
         save(question);

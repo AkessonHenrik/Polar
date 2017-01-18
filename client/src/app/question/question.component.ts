@@ -9,9 +9,11 @@ export class QuestionComponent implements OnInit {
 
   title: String;
   answers: String[];
-  constructor(title: string, answers: string[]) {
+  votes: Number[];
+  constructor(title: string, answers: string[], votes: Number[]) {
     this.title = title;
     this.answers = answers;
+    this.votes = votes;
   }
 
   ngOnInit() {
