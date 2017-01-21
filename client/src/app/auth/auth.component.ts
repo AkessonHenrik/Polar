@@ -12,6 +12,7 @@ import { ApiService } from '../api.service';
 export class AuthComponent implements OnInit {
   email: String;
   name: String;
+  shortcode: String;
   password: String;
   repeatPassword: String;
   error: boolean;
@@ -38,9 +39,17 @@ export class AuthComponent implements OnInit {
         });
     }
   }
+  loginAsGuest(): void {
+    console.log("loginAsGuest")
+    /*
+    1. Generate UUID
+    2. Store it in localStorage as "polar_guest_id"
+    3. Redirect to dashboard
+    */
+  }
   login(): void {
-    if (this.password !== "" && this.name !== "") {
-      this.apiService.login(this.name, this.password)
+    if (this.password !== "" && this.email !== "") {
+      this.apiService.login(this.email, this.password)
         .then(result => {
           console.log("Authenticated");
           localStorage["polar_id"] = result._id;

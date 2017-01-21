@@ -51,6 +51,8 @@
 
 .login:hover {
     padding: 30px;
+    background-color: #70cbce;
+    color: white;
     transition: 0.4s;
 }
 

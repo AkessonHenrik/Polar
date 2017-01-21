@@ -36,7 +36,7 @@ export class PollComponent implements OnInit {
       this.submitter = result.submitter.name;
       this.questions = new Array();
       result.questions.forEach(question => {
-        this.questions.push(new QuestionComponent(question.title, question.answers));
+        this.questions.push(new QuestionComponent(question.title, question.answers, question.votes));
       });
       this.selectedAnswers = new Array(this.questions.length);
       for (var i = 0; i < this.selectedAnswers.length; i++) {
@@ -57,7 +57,7 @@ export class PollComponent implements OnInit {
     if (allQuestionsAnswered) {
       this.snackBar.open('Saving answers...');
       this.apiService.submitParticipation(this.pollId, this.selectedAnswers).then(result => {
-        this.router.navigateByUrl('');
+        this.router.navigateByUrl('graph');
         return;
       });
     } else {

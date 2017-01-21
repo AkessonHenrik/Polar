@@ -15,6 +15,8 @@ import { GuestComponent } from './guest/guest.component';
 import { PollComponent } from './poll/poll.component';
 import { QuestionComponent } from './question/question.component';
 import { GraphComponent } from './graph/graph.component';
+import { SidebarComponent } from './sidebar/sidebar.component';
+import { NavbarComponent } from './navbar/navbar.component';
 // other imports 
 @NgModule({
   declarations: [
@@ -24,7 +26,9 @@ import { GraphComponent } from './graph/graph.component';
     GuestComponent,
     PollComponent,
     QuestionComponent,
-    GraphComponent
+    GraphComponent,
+    SidebarComponent,
+    NavbarComponent
   ],
   imports: [
     ChartsModule,

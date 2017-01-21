@@ -1,14 +1,6 @@
+<app-navbar></app-navbar>
+<app-sidebar>
+</app-sidebar>
 <router-outlet>
-    <div class="wrapper">
-        <h1>Dashboard</h1>
-        <md-tab-group>
-            <md-tab label="Create poll">
-                <div class="polarForm">
-                    <input type="text" placeholder="Enter Poll title" [(ngModel)]="pollTitle" autofocus>
-                    <input type="text" placeholder="Enter question" [(ngModel)]="question">
-                </div>
-                <button class="login" md-raised-button (click)="submitQuestion()">Submit</button>
-            </md-tab>
-        </md-tab-group>
-    </div>
+
 </router-outlet>

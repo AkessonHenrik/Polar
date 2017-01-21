@@ -67,7 +67,7 @@ export class ApiService {
     var options = new RequestOptions({ headers: ApiService.jsonHeader });
     var path = "auth";
     var data = {
-      "username": username,
+      "email": username,
       "password": password
     };
 

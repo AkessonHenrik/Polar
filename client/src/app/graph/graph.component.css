@@ -6,8 +6,8 @@
         background-repeat: no-repeat;
         background-attachment: fixed;
         overflow-y: scroll;
-        display: flex;
-        justify-content: center;
+        /*display: flex;
+        justify-content: center;*/
     }
     
     .charts {

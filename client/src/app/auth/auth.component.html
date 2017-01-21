@@ -5,10 +5,12 @@
             <md-tab-group>
                 <md-tab label="LOGIN">
                     <div class="polarForm">
-                        <input type="text" placeholder="Enter username" [(ngModel)]="username" autofocus>
+                        <input type="text" placeholder="Enter email" [(ngModel)]="email" autofocus>
                         <input type="password" placeholder="Repeat password" [(ngModel)]="password">
                     </div>
                     <button class="login" md-raised-button (click)="login()">Login</button>
+                    <br>
+                    <button class="login" md-raised-button (click)="loginAsGuest();">Login as guest</button>
                 </md-tab>
                 <md-tab label="SIGN UP">
                     <div class="polarForm">
@@ -19,7 +21,6 @@
                     </div>
                     <button class="login" md-raised-button (click)="signup();">Sign up</button>
                 </md-tab>
-                <button class="guest" md-raised-button (click)="signup();">Guest</button>
             </md-tab-group>
         </div>
     </div>

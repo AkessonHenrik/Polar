@@ -1,7 +1,7 @@
 "use strict";
 
 var mongoose = require("../models/user"),
-    Profile = mongoose.model("User");
+    User = mongoose.model("User");
 
 exports.authentify = function(data, callback) {
     User.findOne({ email: data.email }, function(err, user) {
