@@ -19,7 +19,7 @@ import { SidebarComponent } from './sidebar/sidebar.component';
 import { NavbarComponent } from './navbar/navbar.component';
 import 'hammerjs';
 import { UserComponent } from './user/user.component';
-
+import { CreatePollComponent } from './create-poll/create-poll.component';
 // other imports 
 @NgModule({
   declarations: [
@@ -32,7 +32,8 @@ import { UserComponent } from './user/user.component';
     GraphComponent,
     SidebarComponent,
     NavbarComponent,
-    UserComponent
+    UserComponent,
+    CreatePollComponent
   ],
   imports: [
     ChartsModule,
@@ -43,7 +44,8 @@ import { UserComponent } from './user/user.component';
       { path: '', component: AuthComponent },
       { path: 'dashboard', component: DashboardComponent },
       { path: 'poll', component: PollComponent },
-      { path: 'graph', component: GraphComponent }
+      { path: 'graph', component: GraphComponent },
+      { path: 'createPoll', component: CreatePollComponent }
     ]),
     HttpModule
   ],

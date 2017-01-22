@@ -10,7 +10,20 @@ var Question = require("../models/question").model("Question");
  * @param {Function} callback(err, result): called once finished
  */
 exports.addPoll = function(data, callback) {
-    var poll = new Poll(data);
+    console.log(data);
+    var dataToAdd = {
+        title: data.title,
+        submitter: data.submitter,
+        questions: [],
+        keywords: [],
+        ongoing: false
+    }
+    data.questions.forEach(question => {
+        var q = new Question(question);
+        q.save();
+        dataToAdd.questions.push(q);
+    })
+    var poll = new Poll(dataToAdd);
     poll.save((err, result) => {
         if (err) {
             callback(err);

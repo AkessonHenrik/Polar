@@ -1,0 +1,87 @@
+.wrapper {
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    width: 800px;
+    height: 100%;
+    /*
+    overflow: auto;
+    margin: 30px;
+    box-shadow: 5px 3px 5px #888;
+    background-color: #70cbce;*/
+    background: rgba(112, 203, 206, 0.5);
+    color: white;
+    font-size: 30px;
+    transform: translate(-50%, -50%);
+}
+
+.back {
+    width: 100%;
+    height: 100vh;
+    padding: 0;
+    position: fixed;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    overflow-y: scroll;
+}
+
+.wrapper .polarForm {
+    padding: 30px;
+}
+
+.wrapper h1 {
+    text-align: center;
+}
+
+.wrapper .polarForm input {
+    left: 50%;
+    border: none;
+    color: darkgray;
+    clear: both;
+    width: 90%;
+}
+
+.wrapper .polarForm .pollTitle {
+    height: 40px;
+    font-size: 30px;
+    margin-top: 20px;
+    padding: 20px;
+}
+
+.wrapper .polarForm .answer {
+    height: 20px;
+    font-size: 20px;
+    margin-top: 10px;
+    padding: 10px;
+}
+
+.wrapper .polarForm .questionTitle {
+    height: 30px;
+    margin-top: 15px;
+    font-size: 25px;
+    padding: 15px;
+}
+
+.addAnswer {
+    margin-top: 10px;
+    margin-bottom: 10px;
+    padding: 10px;
+    font-size: 20px;
+}
+
+.addQuestion {
+    margin-top: 15px;
+    margin-bottom: 15px;
+    padding: 15px;
+    font-size: 25px;
+}
+
+.button {
+    background-color: white;
+    color: #70cbce;
+}
+
+.button:hover {
+    background-color: #70cbce;
+    color: white;
+}

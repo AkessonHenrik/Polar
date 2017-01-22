@@ -7,6 +7,7 @@ var User = require("./models/user").model("User");
 var Poll = require("./models/poll").model("Poll");
 var Question = require("./models/question").model("Question");
 var Participation = require("./models/Participation").model("Participation");
+var Answer = require("./models/Answer").model("Answer");
 var context = {};
 
 var db = mongoose.connection;
@@ -27,11 +28,11 @@ db.once('open', function() {
     var questions = [
         new Question({
             title: "Quelle est la capitale de la Suisse?",
-            answers: ["Bern", "Berlin", "Geneve", "Zurich"]
+            answers: [new Answer({ value: "Bern" }), new Answer({ value: "Berlin" }), new Answer({ value: "Geneve" }), new Answer({ value: "Zurich" })]
         }),
         new Question({
             title: "Quelles sont les dates de la deuxième guerre mondiale?",
-            answers: ["1940 - 1945", "1939 - 1945", "1939 - 1944"]
+            answers: [new Answer({ value: "1940 - 1945" }), new Answer({ value: "1939 - 1945" }), new Answer({ value: "1939 - 1944" })]
         })
         /*,
                 new Question({
