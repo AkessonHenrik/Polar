@@ -23,6 +23,7 @@ module.exports = function(router) {
         })
     router.route("/")
         .post(function(req, res) {
+            console.log("req.body")
             pollController.addPoll(req.body, (err, result) => {
                 if (err) {
                     console.log(err);

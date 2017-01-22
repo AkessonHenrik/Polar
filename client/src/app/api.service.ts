@@ -96,6 +96,7 @@ export class ApiService {
   public submitParticipation(pollId, selectedAnswers) {
     var options = new RequestOptions({ headers: ApiService.jsonHeader });
     var path = "poll/" + pollId;
+    console.log(selectedAnswers);
     return this.patch(options, path, selectedAnswers);
   }
 
@@ -104,6 +105,19 @@ export class ApiService {
       .toPromise()
       .then(this.extractData)
       .catch(this.handleError);
+  }
+
+  public addPoll(title, questions, submitter) {
+    var options = new RequestOptions({headers: ApiService.jsonHeader});
+    var data = {
+      'title': title,
+      'questions': questions,
+      'submitter': submitter
+    }
+    var path: "poll/";
+    console.log("DATA")
+    console.log(data);
+    return this.post(options, "poll", data);
   }
 
 }

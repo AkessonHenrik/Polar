@@ -26,11 +26,15 @@ export class PollComponent implements OnInit {
       "../../assets/background-3.jpg"
     ][Math.floor(Math.random() * (3))];
   }
-
+  getValue(questionIndex: number, answerIndex: number): String {
+    if (answerIndex >= 0)
+      return this.questions[questionIndex].answers[answerIndex].value;
+    return "";
+  }
   ngOnInit() {
     this.apiService.getPolls().then(res => {
 
-      var result = res[0];
+      var result = res[res.length - 1];
       console.log(result);
       this.pollId = result._id;
       this.submitter = result.submitter.name;
@@ -57,7 +61,8 @@ export class PollComponent implements OnInit {
     if (allQuestionsAnswered) {
       this.snackBar.open('Saving answers...');
       this.apiService.submitParticipation(this.pollId, this.selectedAnswers).then(result => {
-        this.router.navigateByUrl('graph');
+        
+        //this.router.navigateByUrl('graph');
         return;
       });
     } else {

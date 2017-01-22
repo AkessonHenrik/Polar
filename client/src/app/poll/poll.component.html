@@ -4,12 +4,12 @@
         <h2 style="text-align: center">
             Submitted by: {{submitter}}
         </h2>
-        <md-tab-group [selectedIndex]="activeTab">
+        <md-tab-group [(selectedIndex)]="activeTab">
             <md-tab *ngFor="let question of questions; let i = index;" class="questionTab" label="Question {{questions.indexOf(question) + 1}}">
                 <h2>{{question.title}}</h2>
                 <ul *ngFor="let answer of question.answers; let j = index;" [class.selected]="j === selectedAnswers[i]" (click)="onSelectAnswer(question, answer)">
                     <li class="answer">
-                        {{answer}}
+                        {{answer.value}}
                     </li>
                 </ul>
                 <button class="guest" md-raised-button (click)="nextQuestion(i)">Next</button>
@@ -19,7 +19,7 @@
                 <div class="reviewAnswers">
                     <div *ngFor="let answerIndex of selectedAnswers; let k = index;" class="chosenAnswer">
                         <h3>{{questions[k].title}}</h3>
-                        <p>{{questions[k].answers[answerIndex]}}</p>
+                        <p>{{getValue(k, answerIndex)}}</p>
                     </div>
                 </div>
                 <button class="guest" md-raised-button (click)="submit()">Save Answers</button>
