@@ -1,5 +1,4 @@
-<!--<div class="back" [ngStyle]="{'background-image': 'url(' + background + ')'}">-->
-<div class="charts" style="left: 50%;">
+<div class="charts">
     <h1>{{title}}</h1>
     <h2>Submitted by: {{submitter}}</h2>
     <div *ngFor="let question of questions; let i = index">
@@ -10,4 +9,3 @@
         <hr *ngIf="i != questions.length - 1">
     </div>
 </div>
-<!--</div>-->
