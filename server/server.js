@@ -39,6 +39,10 @@ app.use("/auth", authRouter);
 app.use("/poll", pollRouter);
 
 var http = require('http').Server(app);
+var io = require('socket.io')(http);
+require("./socket").socket(io);
+
+
 
 http.listen(config.server_listen_port, function() {
     console.log("Listening on port " + config.server_listen_port);

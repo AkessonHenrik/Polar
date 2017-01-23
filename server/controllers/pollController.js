@@ -3,7 +3,7 @@
 var mongoose = require("../models/poll"),
     Poll = mongoose.model("Poll");
 var Question = require("../models/question").model("Question");
-
+var socket = require("../socket");
 /**
  * Add new poll
  * @param {Object} poll: Poll to add
@@ -66,9 +66,15 @@ exports.updatePoll = function(pollId, answers, callback) {
                 callback(err);
                 return;
             }
+            var new_data = poll.questions.map(question => { return question.votes });
+            console.log("NEWDATA");
+            console.log(new_data);
             for (var i = 0; i < answers.length; i++) {
                 poll.questions[i].votes[answers[i]]++;
+                new_data[i] = poll.questions[i].votes;
             }
+            console.log("NEW DATA AFTER");
+            console.log(new_data);
             poll.questions.forEach(q => {
                 q.markModified('votes');
                 q.save((err, result) => {
@@ -82,6 +88,8 @@ exports.updatePoll = function(pollId, answers, callback) {
             poll.questions.forEach(q => {
                 console.log(q.votes);
             })
+            console.log(socket.update);
+            socket.update(poll.shortcode, new_data);
             callback(null);
         })
 }

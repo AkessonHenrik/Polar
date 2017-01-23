@@ -9,8 +9,8 @@ export class QuestionComponent implements OnInit {
 
   title: String;
   answers: [Answer];
-  votes: Number[];
-  constructor(title: string, answers: [Answer], votes: Number[]) {
+  votes: number[];
+  constructor(title: string, answers: [Answer], votes: number[]) {
     this.title = title;
     this.answers = answers;
     this.votes = votes;
