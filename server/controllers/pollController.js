@@ -3,6 +3,7 @@
 var mongoose = require("../models/poll"),
     Poll = mongoose.model("Poll");
 var Question = require("../models/question").model("Question");
+var Participation = require("../models/participation").model("Participation");
 var socket = require("../socket");
 /**
  * Add new poll
@@ -58,7 +59,16 @@ exports.getPolls = function(callback) {
         })
 }
 
-exports.updatePoll = function(pollId, answers, callback) {
+exports.updatePoll = function(pollId, data, callback) {
+    var answers = data.selectedAnswers;
+    if (data.polar_id) {
+        var participation = new Participation({
+            'poll': pollId,
+            'user': data.polar_id
+        });
+        participation.save();
+    }
+
     Poll.findById(pollId)
         .populate('questions')
         .exec((err, poll) => {

@@ -103,8 +103,14 @@ export class ApiService {
   public submitParticipation(pollId, selectedAnswers) {
     var options = new RequestOptions({ headers: ApiService.jsonHeader });
     var path = "poll/" + pollId;
-    console.log(selectedAnswers);
-    return this.patch(options, path, selectedAnswers);
+    var data = {
+      'selectedAnswers': selectedAnswers
+    }
+    if(localStorage["polar_id"]) {
+      data['polar_id'] = localStorage["polar_id"];
+    }
+    console.log(data)
+    return this.patch(options, path, data);
   }
 
   public patch(options, path, data): any {
