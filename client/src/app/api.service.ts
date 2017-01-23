@@ -107,12 +107,13 @@ export class ApiService {
       .catch(this.handleError);
   }
 
-  public addPoll(title, questions, submitter) {
+  public addPoll(title, questions, submitter, keywords) {
     var options = new RequestOptions({headers: ApiService.jsonHeader});
     var data = {
       'title': title,
       'questions': questions,
-      'submitter': submitter
+      'submitter': submitter,
+      'keywords': keywords
     }
     var path: "poll/";
     console.log("DATA")

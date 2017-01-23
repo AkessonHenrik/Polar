@@ -15,7 +15,7 @@ exports.addPoll = function(data, callback) {
         title: data.title,
         submitter: data.submitter,
         questions: [],
-        keywords: [],
+        keywords: data.keywords,
         ongoing: false
     }
     data.questions.forEach(question => {

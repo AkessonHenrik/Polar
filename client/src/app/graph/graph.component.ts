@@ -20,7 +20,7 @@ export class GraphComponent implements OnInit {
     "../../assets/background-3.jpg"
   ][Math.floor(Math.random() * (3))];
     this.apiService.getPolls().then(res => {
-      var result = res[5];
+      var result = res[res.length - 1];
       this.submitter = result.submitter.name;
       this.questions = new Array();
       this.answers = new Array(this.questions.length);

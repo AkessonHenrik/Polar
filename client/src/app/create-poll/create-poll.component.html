@@ -8,6 +8,7 @@
                     <input type="text" class="answer" [(ngModel)]="question.answers[answerIndex].value" placeholder="Enter answer">
                 </div>
                 <button class="button addAnswer" md-raised-button (click)="addAnswer(questionIndex)">Add answer</button>
+                <button class="button addAnswer" md-raised-button (click)="removeAnswer(questionIndex)">Remove answer</button>
             </div>
             <button class="button addQuestion" md-raised-button (click)="addQuestion()">Add Question</button>
             <input type="text" class="answer" placeholder="Enter keywords in format [key],[key],..." [(ngModel)]="keywords">
