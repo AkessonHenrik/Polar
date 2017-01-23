@@ -1,3 +1,13 @@
-<p>
-  guest works!
-</p>
+<router-outlet>
+    <!--<div class="back" [ngStyle]="{'background-image': 'url(' + background + ')'}">-->
+    <div class="wrapper">
+        <h1>Welcome to Polar</h1>
+        <div class="polarForm">
+            <input type="text" [(ngModel)]="shortcode" placeholder="Enter poll shortcode">
+            <button class="login" md-raised-button style="left: 50%" (click)="participate()">Participate</button>
+            <br>
+            <button class="login" md-raised-button (click)="viewResults()">View results</button>
+        </div>
+    </div>
+    <!--</div>-->
+</router-outlet>

@@ -11,14 +11,19 @@
     }
     
     .charts {
+        color: white;
         padding: 30px;
         margin: 30px;
         height: fit-content;
         text-align: center;
-        background-color: white;
+        background: rgba(149, 117, 205, 0.4);
         border-radius: 30px;
         max-width: 500px;
         display: block;
+    }
+    
+    canvas {
+        color: white;
     }
     
     .graph {

@@ -18,13 +18,12 @@ export class CreatePollComponent implements OnInit {
   submitter: String;
   keywords: String;
   background: string;
-  constructor(private apiService: ApiService, private snackBar: MdSnackBar) {
+  created: boolean;
+  shortcode: String;
+  constructor(private apiService: ApiService, private snackBar: MdSnackBar, private router: Router) {
+    this.created = false;
     this.questions = [new QuestionComponent("", [new Answer(""), new Answer("")], [0, 0])];
-    this.background = [
-      "../../assets/background-1.jpg",
-      "../../assets/background-2.jpg",
-      "../../assets/background-3.jpg"
-    ][Math.floor(Math.random() * (3))];
+    this.background = "../../assets/background-3.jpg";
   }
   addAnswer(questionIndex: number): void {
     this.questions[questionIndex].answers.push({ value: '' });
@@ -44,7 +43,18 @@ export class CreatePollComponent implements OnInit {
     this.questions.push(new QuestionComponent("", [new Answer(""), new Answer("")], [0, 0]))
   }
   submitPoll(): void {
-    this.apiService.addPoll(this.title, this.questions, "5885ff46105f7b257803942e", this.keywords ? this.keywords.split(',') : []);
+    this.apiService.addPoll(this.title, this.questions, "5885ff46105f7b257803942e", this.keywords ? this.keywords.split(',') : []).then(result => {
+      console.log(result);
+      this.created = true;
+      this.shortcode = result.shortcode;
+      console.log("Shortcode = " + this.shortcode);
+    })
+  }
+  participate(): void {
+    this.router.navigateByUrl('poll/' + this.shortcode);
+  }
+  results(): void {
+    this.router.navigateByUrl('graph/' + this.shortcode);
   }
   ngOnInit() {
   }

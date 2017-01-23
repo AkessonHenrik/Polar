@@ -79,6 +79,13 @@ export class ApiService {
     var path = "poll";
     return this.get(options, path);
   }
+
+  public getPollByShortcode(shortcode) {
+    var options = new RequestOptions({ headers: ApiService.jsonHeader });
+    var path = "poll/" + shortcode;
+    return this.get(options, path);
+  }
+
   /**
      * Sends a GET request to the server
      * @param options HTTP options
@@ -116,8 +123,6 @@ export class ApiService {
       'keywords': keywords
     }
     var path: "poll/";
-    console.log("DATA")
-    console.log(data);
     return this.post(options, "poll", data);
   }
 

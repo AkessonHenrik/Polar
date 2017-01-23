@@ -2,7 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { QuestionComponent } from '../question/question.component';
 import { Router } from '@angular/router'
 import { ApiService } from '../api.service';
-import { MdSnackBar } from '@angular/material';
+import { MdSnackBar, MdSnackBarConfig } from '@angular/material';
 import { ActivatedRoute, Params } from '@angular/router';
 @Component({
   selector: 'app-poll',
@@ -41,7 +41,7 @@ export class PollComponent implements OnInit {
 
       var result;
       res.forEach(poll => {
-        if(poll.shortcode === this.shortcode) {
+        if (poll.shortcode === this.shortcode) {
           result = poll;
         }
       })
@@ -69,14 +69,18 @@ export class PollComponent implements OnInit {
       }
     })
     if (allQuestionsAnswered) {
-      this.snackBar.open('Saving answers...');
-      this.apiService.submitParticipation(this.pollId, this.selectedAnswers).then(result => {
-
-        //this.router.navigateByUrl('graph');
-        return;
-      });
+      let config = new MdSnackBarConfig();
+      config.duration = 1000;
+      this.snackBar.open("Saving answers...", "", config);
+      setTimeout(
+        this.apiService.submitParticipation(this.pollId, this.selectedAnswers).then(result => {
+          this.router.navigateByUrl('graph/' + this.shortcode);
+          return;
+        }), 1000);
     } else {
-      alert("You haven't answered all questions!");
+      let config = new MdSnackBarConfig();
+      //config.duration = 2000;
+      this.snackBar.open("You haven't answered to all the questions", "Ok got it", config);
     }
   }
 

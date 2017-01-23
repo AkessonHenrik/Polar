@@ -24,10 +24,9 @@ PollSchema.pre('save', function(next) {
         this.shortcode = "";
         var possible = "abcdefghijklmnopqrstuvwxyz0123456789";
 
-        for (var i = 0; i < 6; i++)
+        for (var i = 0; i < 6; i++) {
             this.shortcode += possible.charAt(Math.floor(Math.random() * possible.length));
-
-        this.shortcode;
+        }
     }
     next();
 });

@@ -33,10 +33,10 @@ exports.addPoll = function(data, callback) {
     })
 }
 
-exports.getPoll = function(id, callback) {
-    Poll.findById(id)
+exports.getPoll = function(shortcode, callback) {
+    Poll.find({ 'shortcode': shortcode })
         .populate("submitter", "name")
-        .populate("questions", "title answers")
+        .populate("questions", "title answers votes")
         .exec(function(err, poll) {
             if (err) {
                 callback(err);

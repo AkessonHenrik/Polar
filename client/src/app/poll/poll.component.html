@@ -1,29 +1,29 @@
-<div class="back" [ngStyle]="{'background-image': 'url(' + background + ')'}">
-    <div class="wrapper">
-        <h1>{{title}}</h1>
-        <h2 style="text-align: center">
-            Submitted by: {{submitter}}
-        </h2>
-        <md-tab-group [(selectedIndex)]="activeTab">
-            <md-tab *ngFor="let question of questions; let i = index;" class="questionTab" label="Question {{questions.indexOf(question) + 1}}">
-                <h2>{{question.title}}</h2>
-                <ul *ngFor="let answer of question.answers; let j = index;" [class.selected]="j === selectedAnswers[i]" (click)="onSelectAnswer(question, answer)">
-                    <li class="answer">
-                        {{answer.value}}
-                    </li>
-                </ul>
-                <button class="guest" md-raised-button (click)="nextQuestion(i)">Next</button>
-            </md-tab>
-            <md-tab class="questionTab" label="Review and Submit">
-                <h2>Review and submit</h2>
-                <div class="reviewAnswers">
-                    <div *ngFor="let answerIndex of selectedAnswers; let k = index;" class="chosenAnswer">
-                        <h3>{{questions[k].title}}</h3>
-                        <p>{{getValue(k, answerIndex)}}</p>
-                    </div>
+<!--<div class="back" [ngStyle]="{'background-image': 'url(' + background + ')'}">-->
+<div class="wrapper">
+    <h1>{{title}}</h1>
+    <h2 style="text-align: center">
+        Submitted by: {{submitter}}
+    </h2>
+    <md-tab-group [(selectedIndex)]="activeTab">
+        <md-tab *ngFor="let question of questions; let i = index;" class="questionTab" label="Question {{questions.indexOf(question) + 1}}">
+            <h2>{{question.title}}</h2>
+            <ul *ngFor="let answer of question.answers; let j = index;" [class.selected]="j === selectedAnswers[i]" (click)="onSelectAnswer(question, answer)">
+                <li class="answer">
+                    {{answer.value}}
+                </li>
+            </ul>
+            <button class="guest" md-raised-button (click)="nextQuestion(i)">Next</button>
+        </md-tab>
+        <md-tab class="questionTab" label="Review and Submit">
+            <h2>Review and submit</h2>
+            <div class="reviewAnswers">
+                <div *ngFor="let answerIndex of selectedAnswers; let k = index;" class="chosenAnswer">
+                    <h3>{{questions[k].title}}</h3>
+                    <p>{{getValue(k, answerIndex)}}</p>
                 </div>
-                <button class="guest" md-raised-button (click)="submit()">Save Answers</button>
-            </md-tab>
-        </md-tab-group>
-    </div>
+            </div>
+            <button class="guest" md-raised-button (click)="submit()">Save Answers</button>
+        </md-tab>
+    </md-tab-group>
 </div>
+<!--</div>-->

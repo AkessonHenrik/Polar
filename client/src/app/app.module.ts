@@ -18,6 +18,7 @@ import { GraphComponent } from './graph/graph.component';
 import { SidebarComponent } from './sidebar/sidebar.component';
 import { NavbarComponent } from './navbar/navbar.component';
 import { CreatePollComponent } from './create-poll/create-poll.component';
+import { NewPollCreatedComponent } from './new-poll-created/new-poll-created.component';
 // other imports 
 @NgModule({
   declarations: [
@@ -30,7 +31,8 @@ import { CreatePollComponent } from './create-poll/create-poll.component';
     GraphComponent,
     SidebarComponent,
     NavbarComponent,
-    CreatePollComponent
+    CreatePollComponent,
+    NewPollCreatedComponent
   ],
   imports: [
     ChartsModule,
@@ -42,7 +44,8 @@ import { CreatePollComponent } from './create-poll/create-poll.component';
       { path: 'dashboard', component: DashboardComponent },
       { path: 'poll/:shortcode', component: PollComponent },
       { path: 'graph/:shortcode', component: GraphComponent },
-      { path: 'createPoll', component: CreatePollComponent }
+      { path: 'createPoll', component: CreatePollComponent },
+      { path: 'guest', component: GuestComponent }
     ]),
     HttpModule
   ],

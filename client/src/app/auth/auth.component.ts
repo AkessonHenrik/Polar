@@ -19,7 +19,7 @@ export class AuthComponent implements OnInit {
   constructor(private apiService: ApiService, private router: Router) {
     this.error = false;
     this.background = [
-      //"../../assets/background-1.jpg",
+      "../../assets/background-1.jpg",
       "../../assets/background-2.jpg",
       "../../assets/background-3.jpg"
     ][Math.floor(Math.random() * (3))];
@@ -41,11 +41,7 @@ export class AuthComponent implements OnInit {
   }
   loginAsGuest(): void {
     console.log("loginAsGuest")
-    /*
-    1. Generate UUID
-    2. Store it in localStorage as "polar_guest_id"
-    3. Redirect to dashboard
-    */
+    this.router.navigateByUrl('guest');    
   }
   login(): void {
     if (this.password !== "" && this.email !== "") {
