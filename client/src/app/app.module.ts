@@ -18,7 +18,6 @@ import { GraphComponent } from './graph/graph.component';
 import { SidebarComponent } from './sidebar/sidebar.component';
 import { NavbarComponent } from './navbar/navbar.component';
 import { CreatePollComponent } from './create-poll/create-poll.component';
-import { NewPollCreatedComponent } from './new-poll-created/new-poll-created.component';
 // other imports 
 @NgModule({
   declarations: [
@@ -31,8 +30,7 @@ import { NewPollCreatedComponent } from './new-poll-created/new-poll-created.com
     GraphComponent,
     SidebarComponent,
     NavbarComponent,
-    CreatePollComponent,
-    NewPollCreatedComponent
+    CreatePollComponent
   ],
   imports: [
     ChartsModule,
