@@ -32,7 +32,7 @@ export class CreatePollComponent implements OnInit {
     this.questions.push(new QuestionComponent("", [new Answer(""), new Answer("")], [0, 0]))
   }
   submitPoll(): void {
-    this.apiService.addPoll(this.title, this.questions, "5884d3ac7389612b38232465");
+    this.apiService.addPoll(this.title, this.questions, "5883d3688e11fd593edaeb68");
   }
   ngOnInit() {
   }

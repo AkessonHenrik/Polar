@@ -15,11 +15,11 @@ import { GuestComponent } from './guest/guest.component';
 import { PollComponent } from './poll/poll.component';
 import { QuestionComponent } from './question/question.component';
 import { GraphComponent } from './graph/graph.component';
-import { SidebarComponent } from './sidebar/sidebar.component';
-import { NavbarComponent } from './navbar/navbar.component';
 import 'hammerjs';
 import { UserComponent } from './user/user.component';
 import { CreatePollComponent } from './create-poll/create-poll.component';
+import { LayoutComponent } from './layout/layout.component';
+import { SidenavComponent } from './sidenav/sidenav.component';
 // other imports 
 @NgModule({
   declarations: [
@@ -30,10 +30,10 @@ import { CreatePollComponent } from './create-poll/create-poll.component';
     PollComponent,
     QuestionComponent,
     GraphComponent,
-    SidebarComponent,
-    NavbarComponent,
     UserComponent,
-    CreatePollComponent
+    CreatePollComponent,
+    LayoutComponent,
+    SidenavComponent
   ],
   imports: [
     ChartsModule,
