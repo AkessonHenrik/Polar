@@ -43,9 +43,10 @@ import { SidenavComponent } from './sidenav/sidenav.component';
     RouterModule.forRoot([
       { path: '', component: AuthComponent },
       { path: 'dashboard', component: DashboardComponent },
-      { path: 'poll', component: PollComponent },
-      { path: 'graph', component: GraphComponent },
-      { path: 'createPoll', component: CreatePollComponent }
+      { path: 'poll/:shortcode', component: PollComponent },
+      { path: 'graph/:shortcode', component: GraphComponent },
+      { path: 'createPoll', component: CreatePollComponent },
+      { path: 'guest', component: GuestComponent }
     ]),
     HttpModule
   ],

@@ -79,6 +79,13 @@ export class ApiService {
     var path = "poll";
     return this.get(options, path);
   }
+
+  public getPollByShortcode(shortcode) {
+    var options = new RequestOptions({ headers: ApiService.jsonHeader });
+    var path = "poll/" + shortcode;
+    return this.get(options, path);
+  }
+
   /**
      * Sends a GET request to the server
      * @param options HTTP options
@@ -96,8 +103,14 @@ export class ApiService {
   public submitParticipation(pollId, selectedAnswers) {
     var options = new RequestOptions({ headers: ApiService.jsonHeader });
     var path = "poll/" + pollId;
-    console.log(selectedAnswers);
-    return this.patch(options, path, selectedAnswers);
+    var data = {
+      'selectedAnswers': selectedAnswers
+    }
+    if(localStorage["polar_id"]) {
+      data['polar_id'] = localStorage["polar_id"];
+    }
+    console.log(data)
+    return this.patch(options, path, data);
   }
 
   public patch(options, path, data): any {
@@ -107,16 +120,15 @@ export class ApiService {
       .catch(this.handleError);
   }
 
-  public addPoll(title, questions, submitter) {
+  public addPoll(title, questions, submitter, keywords) {
     var options = new RequestOptions({headers: ApiService.jsonHeader});
     var data = {
       'title': title,
       'questions': questions,
-      'submitter': submitter
+      'submitter': submitter,
+      'keywords': keywords
     }
     var path: "poll/";
-    console.log("DATA")
-    console.log(data);
     return this.post(options, "poll", data);
   }
 

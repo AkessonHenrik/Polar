@@ -2,7 +2,8 @@ import { Component, OnInit } from '@angular/core';
 import { QuestionComponent } from '../question/question.component';
 import { Router } from '@angular/router'
 import { ApiService } from '../api.service';
-import { MdSnackBar } from '@angular/material';
+import { MdSnackBar, MdSnackBarConfig } from '@angular/material';
+import { ActivatedRoute, Params } from '@angular/router';
 @Component({
   selector: 'app-poll',
   templateUrl: './poll.component.html',
@@ -18,8 +19,8 @@ export class PollComponent implements OnInit {
   questions: QuestionComponent[];
   title: String;
   pollId: String;
-
-  constructor(private apiService: ApiService, private snackBar: MdSnackBar, private router: Router) {
+  shortcode: String;
+  constructor(private apiService: ApiService, private snackBar: MdSnackBar, private router: Router, private activatedRoute: ActivatedRoute) {
     this.background = [
       "../../assets/background-1.jpg",
       "../../assets/background-2.jpg",
@@ -32,9 +33,18 @@ export class PollComponent implements OnInit {
     return "";
   }
   ngOnInit() {
+    this.activatedRoute.params.subscribe((params: Params) => {
+      this.shortcode = params['shortcode'];
+      console.log("Shortcode: " + this.shortcode);
+    });
     this.apiService.getPolls().then(res => {
 
-      var result = res[res.length - 1];
+      var result;
+      res.forEach(poll => {
+        if (poll.shortcode === this.shortcode) {
+          result = poll;
+        }
+      })
       console.log(result);
       this.pollId = result._id;
       this.submitter = result.submitter.name;
@@ -59,14 +69,18 @@ export class PollComponent implements OnInit {
       }
     })
     if (allQuestionsAnswered) {
-      this.snackBar.open('Saving answers...');
-      this.apiService.submitParticipation(this.pollId, this.selectedAnswers).then(result => {
-        
-        //this.router.navigateByUrl('graph');
-        return;
-      });
+      let config = new MdSnackBarConfig();
+      config.duration = 1000;
+      this.snackBar.open("Saving answers...", "", config);
+      setTimeout(
+        this.apiService.submitParticipation(this.pollId, this.selectedAnswers).then(result => {
+          this.router.navigateByUrl('graph/' + this.shortcode);
+          return;
+        }), 1000);
     } else {
-      alert("You haven't answered all questions!");
+      let config = new MdSnackBarConfig();
+      //config.duration = 2000;
+      this.snackBar.open("You haven't answered to all the questions", "Ok got it", config);
     }
   }
 

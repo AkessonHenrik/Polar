@@ -1,9 +1,10 @@
 "use strict";
 var pollController = require('../controllers/pollController');
 module.exports = function(router) {
-    router.route("/:id")
+    router.route("/:shortcode")
         .get(function(req, res) {
-            pollController.getPoll(req.params.id, (err, result) => {
+            console.log("getByShortcode: " + req.params.shortcode);
+            pollController.getPoll(req.params.shortcode, (err, result) => {
                 if (err) {
                     res.status(404).send(err);
                 } else {

@@ -1,27 +1,27 @@
 <router-outlet>
-    <div class="back" [ngStyle]="{'background-image': 'url(' + background + ')'}">
-        <div class="wrapper">
-            <h1>Welcome to Polar</h1>
-            <md-tab-group>
-                <md-tab label="LOGIN">
-                    <div class="polarForm">
-                        <input type="text" placeholder="Enter email" [(ngModel)]="email" autofocus>
-                        <input type="password" placeholder="Repeat password" [(ngModel)]="password">
-                    </div>
-                    <button class="login" md-raised-button (click)="login()">Login</button>
-                    <br>
-                    <button class="login" md-raised-button (click)="loginAsGuest();">Login as guest</button>
-                </md-tab>
-                <md-tab label="SIGN UP">
-                    <div class="polarForm">
-                        <input type="email" placeholder="Enter email" autofocus [(ngModel)]="email">
-                        <input type="text" placeholder="Enter username" autofocus [(ngModel)]="name">
-                        <input type="password" placeholder="Enter password" [(ngModel)]="password">
-                        <input type="password" placeholder="Repeat password" [(ngModel)]="repeatPassword">
-                    </div>
-                    <button class="login" md-raised-button (click)="signup();">Sign up</button>
-                </md-tab>
-            </md-tab-group>
-        </div>
+    <!--<div class="back" [ngStyle]="{'background-image': 'url(' + background + ')'}">-->
+    <div class="wrapper">
+        <h1>Welcome to Polar</h1>
+        <md-tab-group>
+            <md-tab label="LOGIN">
+                <div class="polarForm">
+                    <input type="text" placeholder="Enter email" [(ngModel)]="email" autofocus>
+                    <input type="password" placeholder="Repeat password" [(ngModel)]="password">
+                </div>
+                <button class="login" md-raised-button (click)="login()">Login</button>
+                <br>
+                <button class="login" md-raised-button (click)="loginAsGuest();">Login as guest</button>
+            </md-tab>
+            <md-tab label="SIGN UP">
+                <div class="polarForm">
+                    <input type="email" placeholder="Enter email" autofocus [(ngModel)]="email">
+                    <input type="text" placeholder="Enter username" autofocus [(ngModel)]="name">
+                    <input type="password" placeholder="Enter password" [(ngModel)]="password">
+                    <input type="password" placeholder="Repeat password" [(ngModel)]="repeatPassword">
+                </div>
+                <button class="login" md-raised-button (click)="signup();">Sign up</button>
+            </md-tab>
+        </md-tab-group>
+        <!--</div>-->
     </div>
 </router-outlet>

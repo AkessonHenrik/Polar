@@ -1,17 +1,25 @@
-<div class="back" [ngStyle]="{'background-image': 'url(' + background + ')'}">
-    <div class="wrapper">
-        <div class="polarForm">
-            <input type="text" class="pollTitle" [(ngModel)]="title" placeholder="Enter poll title">
-            <div *ngFor="let question of questions; let questionIndex = index;">
-                <input type="text" class="questionTitle" [(ngModel)]="question.title" placeholder="Enter question title">
-                <div *ngFor="let answer of question.answers; let answerIndex = index;">
-                    <input type="text" class="answer" [(ngModel)]="question.answers[answerIndex].value" placeholder="Enter answer">
-                </div>
-                <button class="button addAnswer" md-raised-button (click)="addAnswer(questionIndex)">Add answer</button>
+<!--<div class="back" [ngStyle]="{'background-image': 'url(' + background + ')'}">-->
+<div class="wrapper">
+    <div *ngIf="created === false" class="polarForm">
+        <input type="text" class="pollTitle" [(ngModel)]="title" placeholder="Enter poll title">
+        <div *ngFor="let question of questions; let questionIndex = index;">
+            <input type="text" class="questionTitle" [(ngModel)]="question.title" placeholder="Enter question title">
+            <div *ngFor="let answer of question.answers; let answerIndex = index;">
+                <input type="text" class="answer" [(ngModel)]="question.answers[answerIndex].value" placeholder="Enter answer">
             </div>
-            <button class="button addQuestion" md-raised-button (click)="addQuestion()">Add Question</button>
-            <input type="text" class="answer" placeholder="Enter keywords in format [key],[key],..." [(ngModel)]="keywords">
-            <button class="button login" md-raised-button (click)="submitPoll()">Submit</button>
+            <button class="button addAnswer" md-raised-button (click)="addAnswer(questionIndex)">Add answer</button>
+            <button class="button addAnswer" md-raised-button (click)="removeAnswer(questionIndex)">Remove answer</button>
         </div>
+        <button class="button addQuestion" md-raised-button (click)="addQuestion()">Add Question</button>
+        <input type="text" class="answer" placeholder="Enter keywords in format [key],[key],..." [(ngModel)]="keywords">
+        <button class="button addQuestion" md-raised-button (click)="submitPoll()">Submit</button>
     </div>
+    <div *ngIf="created === true" class="polarForm">
+        <h1>Your poll has been created</h1>
+        <h2>Shortcode</h2>
+        <div class="shortcode">{{shortcode}}</div>
+        <button class="button addQuestion" md-raised-button (click)="participate()">Participate</button>
+        <button class="button addQuestion" md-raised-button (click)="results()">View results</button>
+    </div>
+    <!--</div>-->
 </div>

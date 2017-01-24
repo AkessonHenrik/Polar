@@ -15,5 +15,9 @@ export class NavbarComponent implements OnInit {
   redirect(): void {
     this.router.navigateByUrl('poll');
   }
-
+  logout(): void {
+    delete localStorage["polar_id"];
+    delete localStorage["polar_username"];
+    this.router.navigateByUrl('');
+  }
 }

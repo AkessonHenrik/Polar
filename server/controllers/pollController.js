@@ -3,7 +3,8 @@
 var mongoose = require("../models/poll"),
     Poll = mongoose.model("Poll");
 var Question = require("../models/question").model("Question");
-
+var Participation = require("../models/participation").model("Participation");
+var socket = require("../socket");
 /**
  * Add new poll
  * @param {Object} poll: Poll to add
@@ -15,7 +16,7 @@ exports.addPoll = function(data, callback) {
         title: data.title,
         submitter: data.submitter,
         questions: [],
-        keywords: [],
+        keywords: data.keywords,
         ongoing: false
     }
     data.questions.forEach(question => {
@@ -33,10 +34,10 @@ exports.addPoll = function(data, callback) {
     })
 }
 
-exports.getPoll = function(id, callback) {
-    Poll.findById(id)
+exports.getPoll = function(shortcode, callback) {
+    Poll.find({ 'shortcode': shortcode })
         .populate("submitter", "name")
-        .populate("questions", "title answers")
+        .populate("questions", "title answers votes")
         .exec(function(err, poll) {
             if (err) {
                 callback(err);
@@ -58,7 +59,16 @@ exports.getPolls = function(callback) {
         })
 }
 
-exports.updatePoll = function(pollId, answers, callback) {
+exports.updatePoll = function(pollId, data, callback) {
+    var answers = data.selectedAnswers;
+    if (data.polar_id) {
+        var participation = new Participation({
+            'poll': pollId,
+            'user': data.polar_id
+        });
+        participation.save();
+    }
+
     Poll.findById(pollId)
         .populate('questions')
         .exec((err, poll) => {
@@ -66,9 +76,15 @@ exports.updatePoll = function(pollId, answers, callback) {
                 callback(err);
                 return;
             }
+            var new_data = poll.questions.map(question => { return question.votes });
+            console.log("NEWDATA");
+            console.log(new_data);
             for (var i = 0; i < answers.length; i++) {
                 poll.questions[i].votes[answers[i]]++;
+                new_data[i] = poll.questions[i].votes;
             }
+            console.log("NEW DATA AFTER");
+            console.log(new_data);
             poll.questions.forEach(q => {
                 q.markModified('votes');
                 q.save((err, result) => {
@@ -82,6 +98,8 @@ exports.updatePoll = function(pollId, answers, callback) {
             poll.questions.forEach(q => {
                 console.log(q.votes);
             })
+            console.log(socket.update);
+            socket.update(poll.shortcode, new_data);
             callback(null);
         })
 }
