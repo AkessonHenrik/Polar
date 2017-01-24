@@ -8,11 +8,6 @@ import { Router } from '@angular/router';
 export class GuestComponent implements OnInit {
   background: string;
   constructor(private router: Router) {
-    this.background = [
-      "../../assets/background-1.jpg",
-      "../../assets/background-2.jpg",
-      "../../assets/background-3.jpg"
-    ][Math.floor(Math.random() * (3))];
    }
   private shortcode: String;
   ngOnInit() {

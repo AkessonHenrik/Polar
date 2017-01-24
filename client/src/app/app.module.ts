@@ -18,7 +18,6 @@ import { GraphComponent } from './graph/graph.component';
 import 'hammerjs';
 import { UserComponent } from './user/user.component';
 import { CreatePollComponent } from './create-poll/create-poll.component';
-import { LayoutComponent } from './layout/layout.component';
 import { SidenavComponent } from './sidenav/sidenav.component';
 // other imports 
 @NgModule({
@@ -32,7 +31,6 @@ import { SidenavComponent } from './sidenav/sidenav.component';
     GraphComponent,
     UserComponent,
     CreatePollComponent,
-    LayoutComponent,
     SidenavComponent
   ],
   imports: [
