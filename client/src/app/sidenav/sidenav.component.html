@@ -1,0 +1,12 @@
+<md-sidenav-layout>
+  <md-sidenav #start mode="side" style="width: 200px;"> Start Sidenav.
+    <br>
+    <button md-button #closeStartButton (click)="start.close()">Close</button>
+  </md-sidenav>
+
+  <md-toolbar color="primary">
+    <button md-button (click)="start.toggle()"><md-icon>menu</md-icon></button>
+  </md-toolbar>
+  <router-outlet [ngStyle]="{'background-image': 'url(' + background + ')'}"></router-outlet>
+</md-sidenav-layout>
+
