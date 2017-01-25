@@ -109,6 +109,14 @@ npm start
   ```
 
 * The server will now run on port `3030`.
+
+### Note about deploying Pollar
+URLs are set by default as:
+
+* `http://localhost:3030` for the `server` application
+* `http://localhost:4200` for the `client` application
+
+If you want to change any of these values, you can simple edit the file `client/src/environements/environement.ts` and set another default URL for the client, the server or both of them !
 ## User Interface
 
 We use the benefits of Material Design to have a clear and simple UI. The main page looks like this:
