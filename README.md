@@ -76,39 +76,37 @@ To build and run  Interactive Polls on your computer, you need to install the fo
 * Clone this repository
 * Make sure you have a terminal session opened in the root directory of this repository cloned
 
-#### Client
-
-* Go into the `client` folder
-* Run the following commands:
-
-  ```bash
-npm install
-npm start
-  ```
-
-* Open a browser and go to `localhost:4200`.
-
 #### Database
 
-* Run the following command:
+Start by running MongoDB. To do so, simply run the following command in a shell:
 
   ```bash
 mongod
   ```
 
-* The database will now run on port `27017`.
+The database will now run on port `27017`.
 
 #### Server
 
-* Go into the `server` folder
-* Run the following commands:
+When the database is running, go into the `server` folder and run the following commands to start the server:
 
   ```bash
 npm install
 npm start
   ```
 
-* The server will now run on port `3030`.
+The server will now run on port `3030`.
+
+#### Client
+
+Finally, start the client by going to the `client` folder and running the following commands:
+
+  ```bash
+npm install
+npm start
+  ```
+
+You are now ready ! Open a browser and go to `localhost:4200` to enjoy Polar !
 
 ### Note about deploying Polar
 URLs are set by default as:
