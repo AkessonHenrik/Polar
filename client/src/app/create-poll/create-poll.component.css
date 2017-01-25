@@ -4,7 +4,8 @@
     top: 50%;
     width: 60%;
     height: 80%;
-    overflow-y: auto;
+    display: block;
+    overflow: auto;
     /*
     overflow: auto;
     margin: 30px;

@@ -4,6 +4,8 @@
     top: 50%;
     width: 60%;
     min-height: 80%;
+    display: block;
+    overflow: auto;
     /*
     box-shadow: 5px 3px 5px #888;
     background-color: #70cbce;*/

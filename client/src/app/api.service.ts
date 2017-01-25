@@ -1,5 +1,6 @@
 import { Injectable } from '@angular/core';
 import { Http, Response, Headers, RequestOptions } from '@angular/http';
+import { environment } from './../environments/environment';
 @Injectable()
 export class ApiService {
 
@@ -41,7 +42,7 @@ export class ApiService {
      * @returns {Promise<TResult|TResult>} the body response of the server
      */
   private post(options, path, data): any {
-    return this.http.post("http://localhost:3030/" + path, JSON.stringify(data), options)
+    return this.http.post(environment.server + path, JSON.stringify(data), options)
       .toPromise()
       .then(response => {
         return response;
@@ -93,7 +94,7 @@ export class ApiService {
      * @returns {Promise<TResult|TResult>} the body response of the server
      */
   private get(options, path): any {
-    return this.http.get("http://localhost:3030/" + path, options)
+    return this.http.get(environment.server + path, options)
       .toPromise()
       .then(this.extractData)
       .catch(this.handleError);
@@ -114,7 +115,7 @@ export class ApiService {
   }
 
   public patch(options, path, data): any {
-    return this.http.patch("http://localhost:3030/" + path, JSON.stringify(data), options)
+    return this.http.patch(environment.server + path, JSON.stringify(data), options)
       .toPromise()
       .then(this.extractData)
       .catch(this.handleError);
