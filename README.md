@@ -24,19 +24,19 @@ Here is the list of main features asked for **friday december 9th**:
 We had to finish the implementation of this project for **wednesday january 25th**. Here are the evaluation criterias:
 
 - The application (and the landing page) must be online, for example hosted on Heroku. The landing page can be hosted on another server than the main application (for example on GitHub Pages).
-- #### Upload and deliverables quality (1 point):
+- **Upload and deliverables quality (1 point):**
 	- This is all the features we had to implement for the first deadline.
-- #### Functionnal variety (1.5 points)
+- **Functionnal variety (1.5 points):**
 	- The application must allow to create polls and anser questions.
 	- The application must allow to consult real-time datas (with socket.io or any equivalent technology).
 	- The application must show visual datas (graphs, ...).
 	- A portion of the application must allow interactions between the polls creator and the participants.
-- #### Interface quality (1 point)
+- **Interface quality (1 point):**
 	- Must have a good design (nice HTML template).
 	- The application must be simple and quick to use for a class or a conference room. We have to suppose that we don't know who will take part of the polling session, and that most of the users are new to our application.
 	- The interface must be as simple and intuitive as possible.
 	- The landing page must present the final stage of the project. If the previous landing page had mockups, they must be replaced by actual screen captures.
-- #### Presentation quality (1.5 points)
+- **Presentation quality (1.5 points):**
 	- The presentation must be distinct and well structured.
 	- The presentation medium must be done with care (content and form).
 	- The demonstration scenario must be clear.
@@ -69,6 +69,7 @@ To build and run  Interactive Polls on your computer, you need to install the fo
 - npm (_version 2.15.9_)
 - angular-cli (_version 1.0.0-beta.22-1_)
 - Node (_version 4.5.0_)
+- MongoDB (_version 3.4.1_)
 
 ### Deployment
 
@@ -87,6 +88,16 @@ npm start
 
 * Open a browser and go to `localhost:4200`.
 
+#### Database
+
+* Run the following command:
+
+  ```bash
+mongod
+  ```
+
+* The database will now run on port `27017`.
+
 #### Server
 
 * Go into the `server` folder
@@ -98,14 +109,20 @@ npm start
   ```
 
 * The server will now run on port `3030`.
-## UI mockups
+## UI
 
-We will use the benefits of Material Design to have a clear and simple UI. The main page will look like this:
+We use the benefits of Material Design to have a clear and simple UI. The main page looks like this:
 
-![UI Mockup](resources/ui-mockup.jpg)
+![UI Login](resources/polar_base.jpg)
 
-You will find the remaining mockups in our **[invision presentation](https://projects.invisionapp.com/share/7X9O02AMV)**. This lets you interact with the mockups to see how we will handle the navigation flow. 
+![UI Poll](resources/polar_poll.jpg)
+
+You will find some other UI screen captures in our **[Landing Page](https://akessonhenrik.github.io/Polar)**. This way, you'll be able to check how Polar will revolutionize the Polling world.. ! 
 
 ## Landing page
 
 You can access our landing page by visiting **[the following link](https://akessonhenrik.github.io/Polar/)**.
+
+## Test Polar
+
+If you want to test Polar, you can use **[the following link](https://akessonhenrik.github.io/Polar/)**. But be aware it is still in beta testing, even if it is fully functionnal... !
