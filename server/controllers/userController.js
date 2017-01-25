@@ -22,6 +22,7 @@ exports.addUser = function(data, callback) {
 };
 exports.getPolls = function(id, callback) {
     Poll.find({ 'submitter': id })
+        .sort({ created_at: 'desc' })
         .populate("questions", "title answers votes")
         .exec(function(err, polls) {
             if (err) {

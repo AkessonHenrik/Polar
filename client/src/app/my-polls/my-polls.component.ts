@@ -22,7 +22,6 @@ export class MyPollsComponent implements OnInit {
       this.notLoggedIn = true;
     }
   }
-
   getNumberOfParticipations(poll): number {
     var result = 0;
     poll.questions[0].votes.forEach(vote => {

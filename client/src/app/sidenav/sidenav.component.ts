@@ -13,12 +13,21 @@ export class SidenavComponent implements OnInit {
   ngOnInit() {
     this.myPolls();
   }
+  isLogged(): boolean {
+    if (localStorage['polar_id'] === undefined || localStorage['polar_id'] === null) {
+      return false;
+    } 
+    return true;
+  }
   myPolls() {
     if (localStorage['polar_id'] === undefined || localStorage['polar_id'] === null) {
       this.router.navigateByUrl('');
     } else {
       this.router.navigateByUrl('myPolls');
     }
+  }
+  login(): void {
+    this.router.navigateByUrl('');
   }
   allPolls() {
     this.router.navigateByUrl('allPolls');
@@ -28,6 +37,9 @@ export class SidenavComponent implements OnInit {
     delete localStorage["password"];
     delete localStorage["polar_username"];
     this.router.navigateByUrl('/');
+  }
+  shortcode() {
+    this.router.navigateByUrl('guest');
   }
   createPoll() {
     if (localStorage['polar_id'] === undefined || localStorage['polar_id'] === null) {

@@ -1,6 +1,6 @@
   .charts {
       left: 50%;
-      color: white;
+      color: black;
       padding: 30px;
       position: relative;
       transform: translate(-50%, 0);
@@ -8,7 +8,7 @@
       margin-bottom: 30px;
       height: fit-content;
       text-align: center;
-      background: rgba(149, 117, 205, 0.4);
+      background: rgba(225, 245, 254, 0.7);
       border-radius: 30px;
       max-width: 500px;
       display: block;

@@ -1,20 +1,26 @@
 <md-sidenav-layout fullscreen>
     <md-toolbar>
-        <button md-button (click)="start.toggle()"><md-icon>menu</md-icon></button>
+        <button md-button (click)="start.toggle();"><md-icon>menu</md-icon></button>
     </md-toolbar>
     <md-sidenav class="sidebar" #start mode="side">
         <ul class="menuOptions">
-            <li (click)="allPolls()">
+            <li *ngIf="isLogged()" (click)="allPolls()">
                 All Active Polls
             </li>
-            <li (click)="myPolls()">
+            <li *ngIf="isLogged()" (click)="myPolls()">
                 My Polls
             </li>
-            <li (click)="createPoll()">
+            <li *ngIf="isLogged()" (click)="createPoll()">
                 Create Poll
             </li>
-            <li (click)="logout()">
+            <li (click)="shortcode()">
+                Shortcode
+            </li>
+            <li *ngIf="isLogged()" (click)="logout()">
                 Logout
+            </li>
+            <li *ngIf="isLogged() === false" (click)="login()">
+                Login
             </li>
         </ul>
     </md-sidenav>
