@@ -109,7 +109,7 @@ npm start
   ```
 
 * The server will now run on port `3030`.
-## UI
+## User Interface
 
 We use the benefits of Material Design to have a clear and simple UI. The main page looks like this:
 
