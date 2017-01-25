@@ -1,7 +1,7 @@
 <router-outlet>
     <div class="wrapper">
         <h1>Welcome to Polar</h1>
-        <md-tab-group>
+        <md-tab-group [(selectedIndex)]="activeTab">
             <md-tab label="LOGIN">
                 <div class="polarForm">
                     <input type="text" placeholder="Enter email" [(ngModel)]="email" autofocus>

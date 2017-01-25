@@ -16,7 +16,9 @@ export class AuthComponent implements OnInit {
   password: String;
   repeatPassword: String;
   error: boolean;
+  activeTab: number;
   constructor(private apiService: ApiService, private router: Router) {
+    this.activeTab = 0;
     this.error = false;
     this.background = [
       "../../assets/background-1.jpg",
@@ -36,8 +38,10 @@ export class AuthComponent implements OnInit {
       this.apiService.register(this.email, this.name, this.password)
         .then(result => {
           console.log(result);
+          this.activeTab=0;
         });
     }
+
   }
   loginAsGuest(): void {
     console.log("loginAsGuest")

@@ -4,6 +4,7 @@ import { QuestionComponent } from '../question/question.component'
 import { Answer } from '../question/answer.component';
 import * as io from 'socket.io-client';
 import { Router, ActivatedRoute, Params } from '@angular/router';
+import { environment } from './../../environments/environment';
 
 @Component({
   selector: 'app-graph',
@@ -41,7 +42,7 @@ export class GraphComponent implements OnInit {
   }
   ngOnInit() {
 
-    this.socket = io.connect("http://localhost:3030");
+    this.socket = io.connect(environment.server);
     this.socket.emit("subscribe", { 'shortcode': this.shortcode });
     this.socket.on("update", new_data => {
       for (var i = 0; i < this.questions.length; i++) {

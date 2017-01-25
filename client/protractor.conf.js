@@ -1,6 +1,6 @@
 // Protractor configuration file, see link for more information
 // https://github.com/angular/protractor/blob/master/docs/referenceConf.js
-
+import { environment } from './environements/environement';
 /*global jasmine */
 var SpecReporter = require('jasmine-spec-reporter');
 
@@ -13,7 +13,7 @@ exports.config = {
     'browserName': 'chrome'
   },
   directConnect: true,
-  baseUrl: 'http://localhost:4200/',
+  baseUrl: environment.client,
   framework: 'jasmine',
   jasmineNodeOpts: {
     showColors: true,
