@@ -16,6 +16,13 @@ export class QuestionComponent implements OnInit {
     this.votes = votes;
   }
 
+  getNumberOfParticipations(): number {
+    var numberOfParticipations = 0;
+    this.votes.forEach(vote => {
+      numberOfParticipations += vote;
+    })
+    return numberOfParticipations;
+  }
   ngOnInit() {
   }
 

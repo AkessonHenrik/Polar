@@ -19,6 +19,8 @@ import 'hammerjs';
 import { UserComponent } from './user/user.component';
 import { CreatePollComponent } from './create-poll/create-poll.component';
 import { SidenavComponent } from './sidenav/sidenav.component';
+import { MyPollsComponent } from './my-polls/my-polls.component';
+import { AllPollsComponent } from './all-polls/all-polls.component';
 // other imports 
 @NgModule({
   declarations: [
@@ -31,7 +33,9 @@ import { SidenavComponent } from './sidenav/sidenav.component';
     GraphComponent,
     UserComponent,
     CreatePollComponent,
-    SidenavComponent
+    SidenavComponent,
+    MyPollsComponent,
+    AllPollsComponent
   ],
   imports: [
     ChartsModule,
@@ -44,7 +48,9 @@ import { SidenavComponent } from './sidenav/sidenav.component';
       { path: 'poll/:shortcode', component: PollComponent },
       { path: 'graph/:shortcode', component: GraphComponent },
       { path: 'createPoll', component: CreatePollComponent },
-      { path: 'guest', component: GuestComponent }
+      { path: 'guest', component: GuestComponent },
+      { path: 'myPolls', component: MyPollsComponent },
+      { path: 'allPolls', component: AllPollsComponent }
     ]),
     HttpModule
   ],

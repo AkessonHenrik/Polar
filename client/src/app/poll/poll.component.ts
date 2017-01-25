@@ -27,6 +27,11 @@ export class PollComponent implements OnInit {
       "../../assets/background-3.jpg"
     ][Math.floor(Math.random() * (3))];
   }
+
+  getNumberOfParticipations(): number {
+    return this.questions[0].getNumberOfParticipations();
+  }
+
   getValue(questionIndex: number, answerIndex: number): String {
     if (answerIndex >= 0)
       return this.questions[questionIndex].answers[answerIndex].value;
@@ -35,7 +40,6 @@ export class PollComponent implements OnInit {
   ngOnInit() {
     this.activatedRoute.params.subscribe((params: Params) => {
       this.shortcode = params['shortcode'];
-      console.log("Shortcode: " + this.shortcode);
     });
     this.apiService.getPolls().then(res => {
 
@@ -45,7 +49,6 @@ export class PollComponent implements OnInit {
           result = poll;
         }
       })
-      console.log(result);
       this.pollId = result._id;
       this.submitter = result.submitter.name;
       this.questions = new Array();

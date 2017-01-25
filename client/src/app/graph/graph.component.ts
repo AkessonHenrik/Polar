@@ -19,11 +19,6 @@ export class GraphComponent implements OnInit {
   socket: SocketIOClient.Socket;
   shortcode: String;
   constructor(private apiService: ApiService, private activatedRoute: ActivatedRoute) {
-    this.background = [
-      //"../../assets/background-1.jpg",
-      "../../assets/background-2.jpg",
-      "../../assets/background-3.jpg"
-    ][Math.floor(Math.random() * (3))];
     this.activatedRoute.params.subscribe((params: Params) => {
       this.shortcode = params['shortcode'];
       console.log("Shortcode: " + this.shortcode);

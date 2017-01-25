@@ -1,6 +1,20 @@
 "use strict";
 var userController = require('../controllers/userController');
 module.exports = function(router) {
+    router.route("/polls/:id")
+        .get(function(req, res) {
+            console.log("Request by " + req.params.id);
+            userController.getPolls(req.params.id, function(err, result) {
+                if (err) {
+                    console.log(err);
+                    res.status(500).send({ 'Error': err });
+                    return;
+                }
+                res.status(200).send(result);
+            })
+        })
+
+
     router.route("/")
         .post(function(req, res) {
             console.log("Trying to register");

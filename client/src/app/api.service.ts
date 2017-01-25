@@ -106,7 +106,7 @@ export class ApiService {
     var data = {
       'selectedAnswers': selectedAnswers
     }
-    if(localStorage["polar_id"]) {
+    if (localStorage["polar_id"]) {
       data['polar_id'] = localStorage["polar_id"];
     }
     console.log(data)
@@ -121,15 +121,20 @@ export class ApiService {
   }
 
   public addPoll(title, questions, submitter, keywords) {
-    var options = new RequestOptions({headers: ApiService.jsonHeader});
+    var options = new RequestOptions({ headers: ApiService.jsonHeader });
     var data = {
       'title': title,
       'questions': questions,
       'submitter': submitter,
       'keywords': keywords
     }
-    var path: "poll/";
-    return this.post(options, "poll", data);
+    var path = "poll/";
+    return this.post(options, path, data);
   }
 
+  public getMyPolls() {
+    var options = new RequestOptions({ headers: ApiService.jsonHeader });
+    var path = "users/polls/" + localStorage["polar_id"];
+    return this.get(options, path)
+  }
 }

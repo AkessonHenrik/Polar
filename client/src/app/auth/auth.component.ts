@@ -52,7 +52,7 @@ export class AuthComponent implements OnInit {
           localStorage["polar_username"] = result.name;
           return;
         }).then(_ => {
-          this.router.navigateByUrl('dashboard');
+          this.router.navigateByUrl('myPolls');
         })
     }
   }

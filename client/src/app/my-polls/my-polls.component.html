@@ -1,0 +1,13 @@
+<md-card id="polls" *ngFor="let poll of myPolls">
+    <md-card-title>{{poll.title}}</md-card-title>
+    <md-card-subtitle>Created on {{poll.created_at.substring(0, poll.created_at.indexOf('T'))}}</md-card-subtitle>
+    <md-card-content>
+        <h2>Shortcode: {{poll.shortcode}}</h2>
+        <h3>Number of participations: {{getNumberOfParticipations(poll)}}</h3>
+        <div style="float: left" *ngFor="let key of poll.keywords">{{key}}, </div><br>
+    </md-card-content>
+    <md-card-actions>
+        <button md-button (click)="results(poll)">See results</button>
+        <button md-button (click)="participate(poll)">Participate</button>
+    </md-card-actions>
+</md-card>

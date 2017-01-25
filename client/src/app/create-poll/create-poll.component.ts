@@ -36,7 +36,7 @@ export class CreatePollComponent implements OnInit {
     } else {
       let config = new MdSnackBarConfig();
       //config.duration = 2000;
-      this.snackBar.open("You can't have less than 2 answers", "Ok got it", config);
+      this.snackBar.open("You can't have less than 2 answers", "Ok got it", config);      
     }
   }
   addQuestion(): void {
@@ -44,7 +44,7 @@ export class CreatePollComponent implements OnInit {
   }
   submitPoll(): void {
 
-    this.apiService.addPoll(this.title, this.questions, "5885ff46105f7b257803942e", this.keywords ? this.keywords.split(',') : []).then(result => {
+    this.apiService.addPoll(this.title, this.questions, localStorage["polar_id"], this.keywords ? this.keywords.split(',') : []).then(result => {
       console.log(result);
       this.created = true;
       this.shortcode = result.shortcode;
@@ -58,6 +58,11 @@ export class CreatePollComponent implements OnInit {
     this.router.navigateByUrl('graph/' + this.shortcode);
   }
   ngOnInit() {
+    if (localStorage['polar_id'] === undefined || localStorage['polar_id'] === null) {
+      let config = new MdSnackBarConfig();
+      this.snackBar.open("You need to be logged in to create a poll", "You got me", config);
+      this.router.navigateByUrl('')
+    }
   }
 
 }

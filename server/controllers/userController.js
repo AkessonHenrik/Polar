@@ -2,7 +2,7 @@
 
 var mongoose = require("../models/user"),
     User = mongoose.model("User");
-
+var Poll = require("../models/poll").model("Poll");
 /**
  * Add new user
  * @param {Object} user: The user
@@ -20,6 +20,19 @@ exports.addUser = function(data, callback) {
     });
 
 };
+exports.getPolls = function(id, callback) {
+    Poll.find({ 'submitter': id })
+        .populate("questions", "title answers votes")
+        .exec(function(err, polls) {
+            if (err) {
+                console.log(err);
+                callback(err, null);
+            }
+            console.log(polls);
+            callback(null, polls);
+        })
+
+}
 exports.getUser = function(id, callback) {
     User.findById(id)
         .exec(function(err, user) {

@@ -1,23 +1,22 @@
 <md-sidenav-layout fullscreen>
-  <md-toolbar color="primary">
-    <button md-button (click)="start.toggle()"><md-icon>menu</md-icon></button>
-  </md-toolbar>
-  <md-sidenav #start mode="side" style="width: 200px;">
-    <ul class="navbar-nav mr-auto">
-      <li *ngIf="true" class="nav-item">
-        <a class="nav-link" routerLink="/poll" routerLinkActive="active">Poll</a>
-      </li>
-      <li *ngIf="true" class="nav-item">
-        <a class="nav-link" routerLink="/createPoll" routerLinkActive="active">Create Poll</a>
-      </li>
-      <li *ngIf="true" class="nav-item">
-        <a class="nav-link" routerLink="/graph" routerLinkActive="active">Results</a>
-      </li>
-    </ul>
-    <button md-button #closeStartButton (click)="start.close()">Close</button>
-  </md-sidenav>
-
-
-  <router-outlet></router-outlet>
+    <md-toolbar>
+        <button md-button (click)="start.toggle()"><md-icon>menu</md-icon></button>
+    </md-toolbar>
+    <md-sidenav class="sidebar" #start mode="side">
+        <ul class="menuOptions">
+            <li (click)="allPolls()">
+                All Active Polls
+            </li>
+            <li (click)="myPolls()">
+                My Polls
+            </li>
+            <li (click)="createPoll()">
+                Create Poll
+            </li>
+            <li (click)="logout()">
+                Logout
+            </li>
+        </ul>
+    </md-sidenav>
+    <router-outlet></router-outlet>
 </md-sidenav-layout>
-
