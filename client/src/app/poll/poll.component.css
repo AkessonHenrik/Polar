@@ -3,7 +3,7 @@
     left: 50%;
     top: 50%;
     width: 60%;
-    height: 80%;
+    min-height: 80%;
     /*
     box-shadow: 5px 3px 5px #888;
     background-color: #70cbce;*/
@@ -84,7 +84,7 @@ li {
     font-size: 30px;
     background-color: #231f20;
     color: #70cbce;
-    width: 30%;
+    min-width: 30%;
 }
 
 .guest:hover {
