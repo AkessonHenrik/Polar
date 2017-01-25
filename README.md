@@ -110,7 +110,7 @@ npm start
 
 * The server will now run on port `3030`.
 
-### Note about deploying Pollar
+### Note about deploying Polar
 URLs are set by default as:
 
 * `http://localhost:3030` for the `server` application
